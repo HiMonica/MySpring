@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/MySpring.iml" filepath="$PROJECT_DIR$/MySpring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MySpring-beans/MySpring-beans.iml" filepath="$PROJECT_DIR$/MySpring-beans/MySpring-beans.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MySpring-context/MySpring-context.iml" filepath="$PROJECT_DIR$/MySpring-context/MySpring-context.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MySpring-core/MySpring-core.iml" filepath="$PROJECT_DIR$/MySpring-core/MySpring-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MySpring-jcl/MySpring-jcl.iml" filepath="$PROJECT_DIR$/MySpring-jcl/MySpring-jcl.iml" />
+    </modules>
+  </component>
+</project>
