@@ -101,6 +101,8 @@ public abstract class AbstractApplicationContext implements ConfigurableApplicat
             //类注册到bean factory
             ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory();
 
+
+
         }
     }
 

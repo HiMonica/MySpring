@@ -35,7 +35,6 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
     }
 
     public DefaultListableBeanFactory(@Nullable BeanFactory parentBeanFactory) {
-        // TODO: 2022/9/11 需要继承另一个父类
         super(parentBeanFactory);
     }
 
