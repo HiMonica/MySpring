@@ -1,6 +1,7 @@
 package org.springframework.context;
 
 import com.example.myspringbeans.BeansException;
+import com.example.myspringbeans.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.context.weaving.ApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
@@ -69,4 +70,6 @@ public interface ConfigurableApplicationContext extends ApplicationContext {
      * @throws IllegalStateException
      */
     void refresh() throws BeansException, IllegalStateException;
+
+    ConfigurableListableBeanFactory getBeanFactory() throws IllegalStateException;
 }

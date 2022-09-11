@@ -11,6 +11,8 @@ import java.io.Serializable;
 
 /**
  * @author julu
+ * 我的理解：运用适配器，在JVM加载的时候就会将引入的日志包加载进去，这样就可以通过
+ * Class.forName在虚拟机中找到自己需要哪种日志，最终将需要该日志的类加载进日志文件中
  * @date 2022/9/4 15:50
  */
 final class LogAdapter {
@@ -101,6 +103,26 @@ final class LogAdapter {
         public Log4jLog(String name){
             this.logger = loggerContext.getLogger(name);
         }
+
+        @Override
+        public boolean isDebugEnabled() {
+            return false;
+        }
+
+        @Override
+        public boolean isTraceEnabled() {
+            return false;
+        }
+
+        @Override
+        public void trace(Object message) {
+
+        }
+
+        @Override
+        public void debug(Object message) {
+
+        }
     }
 
     private static class Slf4jAdapter{
@@ -142,6 +164,26 @@ final class LogAdapter {
             this.name = logger.getName();
             this.logger = logger;
         }
+
+        @Override
+        public boolean isDebugEnabled() {
+            return false;
+        }
+
+        @Override
+        public boolean isTraceEnabled() {
+            return false;
+        }
+
+        @Override
+        public void trace(Object message) {
+
+        }
+
+        @Override
+        public void debug(Object message) {
+
+        }
     }
 
     private static class JavaUtilLog implements Log, Serializable{
@@ -153,6 +195,26 @@ final class LogAdapter {
         public JavaUtilLog(String name){
             this.name = name;
             this.logger = java.util.logging.Logger.getLogger(name);
+        }
+
+        @Override
+        public boolean isDebugEnabled() {
+            return false;
+        }
+
+        @Override
+        public boolean isTraceEnabled() {
+            return false;
+        }
+
+        @Override
+        public void trace(Object message) {
+
+        }
+
+        @Override
+        public void debug(Object message) {
+
         }
     }
 }

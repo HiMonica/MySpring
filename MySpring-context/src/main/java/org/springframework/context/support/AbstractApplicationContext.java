@@ -1,14 +1,22 @@
 package org.springframework.context.support;
 
 import com.example.myspringbeans.BeansException;
+import com.example.myspringbeans.config.ConfigurableListableBeanFactory;
+import com.example.myspringbeans.factory.BeanFactory;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.context.ApplicationEvent;
+import org.springframework.context.ApplicationListener;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.weaving.ApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.Environment;
 import org.springframework.core.env.StandardEnvironment;
 import org.springframework.lang.Nullable;
+import org.springframework.util.ObjectUtils;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public abstract class AbstractApplicationContext implements ConfigurableApplicationContext {
@@ -24,6 +32,12 @@ public abstract class AbstractApplicationContext implements ConfigurableApplicat
     private long startupDate;
 
     /**
+     * 展示的名称
+     */
+    // TODO: 2022/9/11 工具暂时先用spring源码
+    private String displayName = ObjectUtils.identityToString(this);
+
+    /**
      * 是否关闭
      */
     private final AtomicBoolean closed = new AtomicBoolean();
@@ -32,6 +46,23 @@ public abstract class AbstractApplicationContext implements ConfigurableApplicat
      * 是否活跃
      */
     private final AtomicBoolean active = new AtomicBoolean();
+
+    /**
+     * 指定监听器
+     */
+    private final Set<ApplicationListener<?>> applicationListeners = new LinkedHashSet<>();
+
+    /**
+     * 本地监听器，需要在初始化的时候refresh
+     */
+    @Nullable
+    private Set<ApplicationListener<?>> earlyApplicationListeners;
+
+    @Nullable
+    private ApplicationContext parent;
+
+    @Nullable
+    private Set<ApplicationEvent> earlyApplicationEvents;
 
     protected final Log logger = LogFactory.getLog(getClass());
 
@@ -45,7 +76,7 @@ public abstract class AbstractApplicationContext implements ConfigurableApplicat
             prepareRefresh();
 
             //类注册到bean factory
-
+            ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory();
 
         }
     }
@@ -58,16 +89,32 @@ public abstract class AbstractApplicationContext implements ConfigurableApplicat
         this.closed.set(false);
         this.active.set(true);
 
-
-
-        //3、设置spring专属日志
-        // TODO: 2022/8/28 专门写一个日志类
+        //3、spring启动的日志打印
+        if (logger.isDebugEnabled()){
+            if (logger.isTraceEnabled()){
+                logger.trace("Refreshing" + this);
+            }
+            else {
+                logger.debug("Refreshing" + getDisplayName());
+            }
+        }
 
         //4、初始化，包活后面要用到的environment
         initPropertySources();
 
         //5、校验
         getEnvironment().validateRequiredProperties();
+
+        //6、一些字段的初始化，主要是监听
+        // TODO: 2022/9/11 目前不知道是干嘛用的
+        if (this.earlyApplicationListeners == null){
+            this.earlyApplicationListeners = new LinkedHashSet<>(this.applicationListeners);
+        }else {
+            this.applicationListeners.clear();
+            this.applicationListeners.addAll(this.earlyApplicationListeners);
+        }
+
+        this.earlyApplicationEvents = new LinkedHashSet<>();
     }
 
     protected void initPropertySources(){
@@ -89,5 +136,45 @@ public abstract class AbstractApplicationContext implements ConfigurableApplicat
 
     protected ConfigurableEnvironment createEnvironment(){
         return new StandardEnvironment();
+    }
+
+    @Override
+    public String getDisplayName() {
+        return this.displayName;
+    }
+
+    /**
+     * 告诉子类刷新内部工厂
+     * @return
+     */
+    protected ConfigurableListableBeanFactory obtainFreshBeanFactory(){
+        refreshBeanFactory();
+        return getBeanFactory();
+    }
+
+    protected abstract void refreshBeanFactory();
+
+    @Override
+    public abstract ConfigurableListableBeanFactory getBeanFactory() throws IllegalStateException;
+
+    protected void destroyBeans(){
+        getBeanFactory().destroySingletons();
+    }
+
+    protected void cancelRefresh(BeansException ex){
+        this.active.set(false);
+    }
+
+    protected abstract void closeBeanFactory();
+
+    @Nullable
+    protected BeanFactory getInternalParentBeanFactory(){
+        return (getParent() instanceof ConfigurableApplicationContext ?
+                ((ConfigurableApplicationContext) getParent()).getBeanFactory() : getParent());
+    }
+
+    @Override
+    public ApplicationContext getParent() {
+        return this.parent;
     }
 }

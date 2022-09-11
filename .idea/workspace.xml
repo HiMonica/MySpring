@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4be11a18-de06-4012-b9cb-87af949cc4e2" name="Changes" comment="" />
+    <list default="true" id="4be11a18-de06-4012-b9cb-87af949cc4e2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/config/ConfigurableBeanFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/config/ConfigurableListableBeanFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/support/DefaultListableBeanFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MySpring-context/src/main/java/org/springframework/context/ApplicationEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MySpring-context/src/main/java/org/springframework/context/ApplicationListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MySpring-context/src/main/java/org/springframework/context/support/AbstractRefreshableApplicationContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-context/src/main/java/org/springframework/context/ConfigurableApplicationContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/src/main/java/org/springframework/context/ConfigurableApplicationContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-context/src/main/java/org/springframework/context/support/AbstractApplicationContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/src/main/java/org/springframework/context/support/AbstractApplicationContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-jcl/src/main/java/org/apache/commons/logging/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-jcl/src/main/java/org/apache/commons/logging/Log.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-jcl/src/main/java/org/apache/commons/logging/LogAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-jcl/src/main/java/org/apache/commons/logging/LogAdapter.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,12 +27,16 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="291THaBG1a84wTgVR48KqEPUWTJ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="autoscrollToSource" value="true" />
@@ -31,10 +49,12 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/MySpring-context/src/main/java" />
-    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Application.Test">
@@ -85,12 +105,25 @@
       <workItem from="1654416247049" duration="11000" />
       <workItem from="1654422222385" duration="10028000" />
       <workItem from="1655778300425" duration="3376000" />
-      <workItem from="1660441302203" duration="18380000" />
+      <workItem from="1660441302203" duration="21248000" />
+      <workItem from="1662857098102" duration="6562000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

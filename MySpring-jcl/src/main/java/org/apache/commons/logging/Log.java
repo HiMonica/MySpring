@@ -6,5 +6,27 @@ package org.apache.commons.logging;
  */
 public interface Log {
 
+    /**
+     * 是否启动debug日志级别
+     * @return
+     */
+    boolean isDebugEnabled();
 
+    /**
+     * 是否启动trace日志级别
+     * @return
+     */
+    boolean isTraceEnabled();
+
+    /**
+     * 记录trace级别日志
+     * @param message
+     */
+    void trace(Object message);
+
+    /**
+     * 记录debug级别日志
+     * @param message
+     */
+    void debug(Object message);
 }
