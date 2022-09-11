@@ -12,7 +12,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author julu
  * @date 2022/9/11 09:45
  */
-public class DefaultListableBeanFactory {
+public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFactory{
 
     /**
      * 是否允许重新注册具有相同名称的不同定义
@@ -36,7 +36,7 @@ public class DefaultListableBeanFactory {
 
     public DefaultListableBeanFactory(@Nullable BeanFactory parentBeanFactory) {
         // TODO: 2022/9/11 需要继承另一个父类
-        super();
+        super(parentBeanFactory);
     }
 
     @Nullable

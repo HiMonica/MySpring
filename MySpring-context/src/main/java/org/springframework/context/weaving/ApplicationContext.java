@@ -3,12 +3,14 @@ package org.springframework.context.weaving;
 import com.example.myspringbeans.factory.HierarchicalBeanFactory;
 import com.example.myspringbeans.factory.ListableBeanFactory;
 import org.springframework.core.env.EnvironmentCapable;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.lang.Nullable;
 
 /**
  * 所有配置接口的集中接口，应该是最重要的接口之一
  */
-public interface ApplicationContext extends ListableBeanFactory, HierarchicalBeanFactory, EnvironmentCapable {
+public interface ApplicationContext extends ListableBeanFactory, HierarchicalBeanFactory,
+        EnvironmentCapable, ResourceLoader {
 
     /**
      * 返回此应用上下文的唯一id

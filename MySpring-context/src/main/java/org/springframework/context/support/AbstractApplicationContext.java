@@ -12,6 +12,8 @@ import org.springframework.context.weaving.ApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.Environment;
 import org.springframework.core.env.StandardEnvironment;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.lang.Nullable;
 import org.springframework.util.ObjectUtils;
 
@@ -58,6 +60,14 @@ public abstract class AbstractApplicationContext implements ConfigurableApplicat
     @Nullable
     private Set<ApplicationListener<?>> earlyApplicationListeners;
 
+    /**
+     * 如果这个id存在，那么他一定要是唯一
+     */
+    private String id = ObjectUtils.identityToString(this);
+
+    @Nullable
+    private ResourcePatternResolver resourcePatternResolver;
+
     @Nullable
     private ApplicationContext parent;
 
@@ -68,6 +78,19 @@ public abstract class AbstractApplicationContext implements ConfigurableApplicat
 
     @Nullable
     private ConfigurableEnvironment environment;
+
+    public AbstractApplicationContext() {
+        this.resourcePatternResolver = getResourcePatternResolver();
+    }
+
+    protected ResourcePatternResolver getResourcePatternResolver(){
+        return new PathMatchingResourcePatternResolver(this);
+    }
+
+    public AbstractApplicationContext(@Nullable ApplicationContext parent) {
+        this();
+        setParent(parent);
+    }
 
     @Override
     public void refresh() throws BeansException, IllegalStateException {
@@ -90,6 +113,7 @@ public abstract class AbstractApplicationContext implements ConfigurableApplicat
         this.active.set(true);
 
         //3、spring启动的日志打印
+        // TODO: 2022/9/11 logger是Slf4j的原因是因为我引入了Slf4j的包
         if (logger.isDebugEnabled()){
             if (logger.isTraceEnabled()){
                 logger.trace("Refreshing" + this);
@@ -176,5 +200,10 @@ public abstract class AbstractApplicationContext implements ConfigurableApplicat
     @Override
     public ApplicationContext getParent() {
         return this.parent;
+    }
+
+    @Override
+    public String getId() {
+        return this.id;
     }
 }

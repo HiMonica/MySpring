@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.slf4j.spi.LocationAwareLogger;
 
 import java.io.Serializable;
+import java.util.logging.Level;
 
 /**
  * @author julu
@@ -106,12 +107,12 @@ final class LogAdapter {
 
         @Override
         public boolean isDebugEnabled() {
-            return false;
+            return this.logger.isEnabled(org.apache.logging.log4j.Level.DEBUG);
         }
 
         @Override
         public boolean isTraceEnabled() {
-            return false;
+            return this.logger.isEnabled(org.apache.logging.log4j.Level.TRACE);
         }
 
         @Override
@@ -167,12 +168,12 @@ final class LogAdapter {
 
         @Override
         public boolean isDebugEnabled() {
-            return false;
+            return this.logger.isDebugEnabled();
         }
 
         @Override
         public boolean isTraceEnabled() {
-            return false;
+            return this.logger.isTraceEnabled();
         }
 
         @Override
@@ -199,12 +200,12 @@ final class LogAdapter {
 
         @Override
         public boolean isDebugEnabled() {
-            return false;
+            return this.logger.isLoggable(Level.FINE);
         }
 
         @Override
         public boolean isTraceEnabled() {
-            return false;
+            return this.logger.isLoggable(Level.FINEST);
         }
 
         @Override

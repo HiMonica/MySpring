@@ -4,6 +4,7 @@ import com.example.myspringbeans.BeansException;
 import com.example.myspringbeans.config.ConfigurableListableBeanFactory;
 import com.example.myspringbeans.support.DefaultListableBeanFactory;
 import org.springframework.context.ApplicationContextException;
+import org.springframework.context.weaving.ApplicationContext;
 import org.springframework.lang.Nullable;
 
 import java.io.IOException;
@@ -28,6 +29,13 @@ public abstract class AbstractRefreshableApplicationContext extends AbstractAppl
 
     @Nullable
     private DefaultListableBeanFactory beanFactory;
+
+    public AbstractRefreshableApplicationContext() {
+    }
+
+    public AbstractRefreshableApplicationContext(@Nullable ApplicationContext parent){
+        super(parent);
+    }
 
     /**
      * 关闭老的工厂，为上下文生命周期的下一个阶段初始化一个新的工厂
