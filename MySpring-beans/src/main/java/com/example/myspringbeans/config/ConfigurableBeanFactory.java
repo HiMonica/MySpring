@@ -54,5 +54,17 @@ public interface ConfigurableBeanFactory extends HierarchicalBeanFactory {
     @Nullable
     ClassLoader getTempClassLoader();
 
+    /**
+     * 设置metaData参数
+     * @param cacheBeanMetaData
+     */
+    void setCacheBeanMetaData(boolean cacheBeanMetaData);
+
+    /**
+     * 是否缓存metadata
+     * @return
+     */
+    boolean isCacheBeanMetaData();
+
 
 }

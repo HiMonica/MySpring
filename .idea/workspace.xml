@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4be11a18-de06-4012-b9cb-87af949cc4e2" name="Changes" comment="完善日志适配和完善了beanFactory的初始化">
-      <change afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/org/springframework/cglib/core/AbstractClassGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/org/springframework/cglib/core/ClassGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/org/springframework/cglib/core/DefaultGeneratorStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/org/springframework/cglib/core/GeneratorStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/org/springframework/cglib/proxy/Enhancer.java" afterDir="false" />
+    <list default="true" id="4be11a18-de06-4012-b9cb-87af949cc4e2" name="Changes" comment="cglib">
+      <change afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/org/springframework/core/io/DefaultResourceLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/org/springframework/util/ResourceUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/support/DefaultListableBeanFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/support/DefaultListableBeanFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MySpring-context/src/main/java/org/springframework/context/support/AbstractApplicationContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/src/main/java/org/springframework/context/support/AbstractApplicationContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/src/main/java/org/springframework/core/io/ResourceLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/org/springframework/core/io/ResourceLoader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,9 +54,15 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/MySpring-context/src/main/java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/MySpring-core/src/main/java/org/springframework/core/io" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="Errors" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/MySpring-core/src/main/java/org/springframework/core/io" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.MyTest">
     <configuration name="MyTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -124,7 +127,8 @@
       <workItem from="1654422222385" duration="10028000" />
       <workItem from="1655778300425" duration="3376000" />
       <workItem from="1660441302203" duration="21248000" />
-      <workItem from="1662857098102" duration="17650000" />
+      <workItem from="1662857098102" duration="18284000" />
+      <workItem from="1662970205989" duration="3599000" />
     </task>
     <task id="LOCAL-00001" summary="类注册到beanFactory">
       <created>1662864131530</created>
@@ -147,7 +151,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662883474670</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="cglib">
+      <created>1662911016553</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1662911016553</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,7 +179,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="类注册到beanFactory" />
     <MESSAGE value="完善日志适配和完善了beanFactory的初始化" />
-    <option name="LAST_COMMIT_MESSAGE" value="完善日志适配和完善了beanFactory的初始化" />
+    <MESSAGE value="cglib" />
+    <option name="LAST_COMMIT_MESSAGE" value="cglib" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

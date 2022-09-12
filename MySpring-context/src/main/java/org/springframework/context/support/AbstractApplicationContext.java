@@ -12,6 +12,7 @@ import org.springframework.context.weaving.ApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.Environment;
 import org.springframework.core.env.StandardEnvironment;
+import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.lang.Nullable;
@@ -21,7 +22,8 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public abstract class AbstractApplicationContext implements ConfigurableApplicationContext {
+public abstract class AbstractApplicationContext extends DefaultResourceLoader
+        implements ConfigurableApplicationContext {
 
     /**
      * 刷新和销毁的同步监视器
@@ -101,7 +103,7 @@ public abstract class AbstractApplicationContext implements ConfigurableApplicat
             //类注册到bean factory
             ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory();
 
-
+            //准备bean工厂
 
         }
     }
@@ -141,6 +143,12 @@ public abstract class AbstractApplicationContext implements ConfigurableApplicat
         }
 
         this.earlyApplicationEvents = new LinkedHashSet<>();
+    }
+
+    protected void prepareBeanFactory(ConfigurableListableBeanFactory beanFactory){
+        //告诉bean工厂使用上下文的类加载器等
+        beanFactory.setBeanClassLoader(getClassLoader());
+
     }
 
     protected void initPropertySources(){
