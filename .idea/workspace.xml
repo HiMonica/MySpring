@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4be11a18-de06-4012-b9cb-87af949cc4e2" name="Changes" comment="cglib">
-      <change afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/org/springframework/core/io/DefaultResourceLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/org/springframework/util/ResourceUtils.java" afterDir="false" />
+    <list default="true" id="4be11a18-de06-4012-b9cb-87af949cc4e2" name="Changes" comment="准备bean工厂的一些操作">
+      <change afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/config/BeanExpressionContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/config/BeanExpressionResolver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/config/Scope.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-context/src/main/java/org/springframework/context/support/AbstractApplicationContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/src/main/java/org/springframework/context/support/AbstractApplicationContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-core/src/main/java/org/springframework/core/io/ResourceLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/org/springframework/core/io/ResourceLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/config/ConfigurableBeanFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/config/ConfigurableBeanFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +20,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -128,7 +128,8 @@
       <workItem from="1655778300425" duration="3376000" />
       <workItem from="1660441302203" duration="21248000" />
       <workItem from="1662857098102" duration="18284000" />
-      <workItem from="1662970205989" duration="3599000" />
+      <workItem from="1662970205989" duration="3957000" />
+      <workItem from="1663082684157" duration="1054000" />
     </task>
     <task id="LOCAL-00001" summary="类注册到beanFactory">
       <created>1662864131530</created>
@@ -158,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662911016553</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="准备bean工厂的一些操作">
+      <created>1662983520181</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1662983520181</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,7 +188,8 @@
     <MESSAGE value="类注册到beanFactory" />
     <MESSAGE value="完善日志适配和完善了beanFactory的初始化" />
     <MESSAGE value="cglib" />
-    <option name="LAST_COMMIT_MESSAGE" value="cglib" />
+    <MESSAGE value="准备bean工厂的一些操作" />
+    <option name="LAST_COMMIT_MESSAGE" value="准备bean工厂的一些操作" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

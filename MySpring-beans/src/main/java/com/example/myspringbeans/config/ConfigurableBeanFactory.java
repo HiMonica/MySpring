@@ -66,5 +66,18 @@ public interface ConfigurableBeanFactory extends HierarchicalBeanFactory {
      */
     boolean isCacheBeanMetaData();
 
+    /**
+     * 为bean定义中的表达式指定解析策略
+     * @param resolver
+     */
+    void setBeanExpressionResolver(@Nullable BeanExpressionResolver resolver);
+
+    /**
+     * 返回bean定义中的表达式指定的解析策略
+     * @return
+     */
+    @Nullable
+    BeanExpressionResolver getBeanExpressionResolver();
+
 
 }
