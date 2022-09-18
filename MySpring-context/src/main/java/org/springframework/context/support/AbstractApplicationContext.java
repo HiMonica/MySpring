@@ -9,6 +9,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.EnvironmentAware;
 import org.springframework.context.expression.StandardBeanExpressionResolver;
 import org.springframework.context.weaving.ApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
@@ -156,6 +157,10 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 
         //这一步中，给beanFactory注册了个beanPostProcessor，后处理器的类型是 ApplicationContextAwareProcessor
         beanFactory.addBeanPostProcessor(new ApplicationContextAwareProcessor(this));
+        beanFactory.ignoreDependencyInterface(EnvironmentAware.class);
+        // TODO: 2022/9/18 有些需要装载的类先后面用到再装载
+//        beanFactory.ignoreDependencyInterface();
+        
     }
 
     protected void initPropertySources(){

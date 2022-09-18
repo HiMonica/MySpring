@@ -204,4 +204,44 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
     public <A extends Annotation> A findAnnotationOnBean(String beanName, Class<A> annotationType) throws NoSuchBeanDefinitionException {
         return null;
     }
+
+    @Override
+    public void ignoreDependencyType(Class<?> type) {
+
+    }
+
+    @Override
+    public void ignoreDependencyInterface(Class<?> ifc) {
+
+    }
+
+    @Override
+    public void registerResolvableDependency(Class<?> dependencyType, Object autowiredValue) {
+
+    }
+
+    @Override
+    public Iterable<String> getBeanNameIterator() {
+        return null;
+    }
+
+    @Override
+    public void clearMetadataCache() {
+
+    }
+
+    @Override
+    public void freezeConfiguration() {
+
+    }
+
+    @Override
+    public boolean isConfigurationFrozen() {
+        return false;
+    }
+
+    @Override
+    public void preInstantiateSingletons() throws BeansException {
+
+    }
 }

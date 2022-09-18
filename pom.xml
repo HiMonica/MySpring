@@ -5,7 +5,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>MySpring-context</module>
-        <module>EnvironmentCapable</module>
         <module>MySpring-core</module>
         <module>MySpring-jcl</module>
     </modules>
