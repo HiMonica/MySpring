@@ -1,6 +1,7 @@
 package com.example.myspringbeans.support;
 
 import com.example.myspringbeans.BeansException;
+import com.example.myspringbeans.config.AutowireCapableBeanFactory;
 import com.example.myspringbeans.config.ConfigurableBeanFactory;
 import com.example.myspringbeans.factory.BeanFactory;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
@@ -12,7 +13,7 @@ import org.springframework.lang.Nullable;
  * @author julu
  * @date 2022/9/11 15:43
  */
-public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory implements ConfigurableBeanFactory {
+public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory implements AutowireCapableBeanFactory {
 
     public AbstractAutowireCapableBeanFactory() {
         super();
@@ -30,11 +31,6 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 
     @Override
     public void setParentBeanFactory(BeanFactory parentBeanFactory) throws IllegalStateException {
-
-    }
-
-    @Override
-    public void setBeanClassLoader(ClassLoader beanClassLoader) {
 
     }
 

@@ -4,16 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4be11a18-de06-4012-b9cb-87af949cc4e2" name="Changes" comment="完善bean的初始化过程">
+    <list default="true" id="4be11a18-de06-4012-b9cb-87af949cc4e2" name="Changes" comment="beanFactory nullError fix">
+      <change afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/config/AutowireCapableBeanFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/PropertyEditorRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/PropertyEditorRegistrar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/config/ConfigurableBeanFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/config/ConfigurableBeanFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/support/AbstractAutowireCapableBeanFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/support/AbstractAutowireCapableBeanFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/support/AbstractBeanFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/support/AbstractBeanFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/support/DefaultListableBeanFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/support/DefaultListableBeanFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-context/src/main/java/org/springframework/context/support/AbstractApplicationContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/src/main/java/org/springframework/context/support/AbstractApplicationContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-context/src/main/java/org/springframework/context/support/AbstractRefreshableApplicationContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/src/main/java/org/springframework/context/support/AbstractRefreshableApplicationContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-context/target/classes/org/springframework/context/support/AbstractApplicationContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/target/classes/org/springframework/context/support/AbstractApplicationContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-context/target/classes/org/springframework/context/support/ClassPathXmlApplicationContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/target/classes/org/springframework/context/support/ClassPathXmlApplicationContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-core/src/main/java/org/springframework/core/io/support/PathMatchingResourcePatternResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/org/springframework/core/io/support/PathMatchingResourcePatternResolver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-core/target/classes/org/springframework/core/io/ResourceLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/target/classes/org/springframework/core/io/ResourceLoader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-core/target/classes/org/springframework/core/io/support/PathMatchingResourcePatternResolver.class" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/target/classes/org/springframework/core/io/support/PathMatchingResourcePatternResolver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/support/ResourceEditorRegistrar.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/support/ResourceEditorRegistrar.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +23,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -133,7 +132,7 @@
       <workItem from="1660441302203" duration="21248000" />
       <workItem from="1662857098102" duration="18284000" />
       <workItem from="1662970205989" duration="3957000" />
-      <workItem from="1663082684157" duration="12007000" />
+      <workItem from="1663082684157" duration="13955000" />
     </task>
     <task id="LOCAL-00001" summary="类注册到beanFactory">
       <created>1662864131530</created>
@@ -184,7 +183,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663473938293</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="beanFactory nullError fix">
+      <created>1663475413203</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1663475413203</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -209,7 +215,8 @@
     <MESSAGE value="准备bean工厂的一些操作" />
     <MESSAGE value="完成解析策略" />
     <MESSAGE value="完善bean的初始化过程" />
-    <option name="LAST_COMMIT_MESSAGE" value="完善bean的初始化过程" />
+    <MESSAGE value="beanFactory nullError fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="beanFactory nullError fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -223,11 +230,6 @@
           <url>file://$PROJECT_DIR$/MySpring-context/src/main/java/org/springframework/context/support/AbstractApplicationContext.java</url>
           <line>157</line>
           <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/MySpring-core/src/main/java/org/springframework/core/io/DefaultResourceLoader.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/MySpring-context/src/main/java/org/springframework/context/support/AbstractApplicationContext.java</url>

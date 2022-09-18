@@ -6,11 +6,11 @@ package com.example.myspringbeans;
  * @author julu
  * @date 2022/9/18 08:37
  */
-public interface PropertyEditorRegister {
+public interface PropertyEditorRegistrar {
 
     /**
      * 注册
      * @param register
      */
-    void registerCustomEditors(PropertyEditorRegister register);
+    void registerCustomEditors(PropertyEditorRegistrar register);
 }

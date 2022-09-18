@@ -1,6 +1,6 @@
 package com.example.myspringbeans.support;
 
-import com.example.myspringbeans.PropertyEditorRegister;
+import com.example.myspringbeans.PropertyEditorRegistrar;
 import org.springframework.core.env.PropertyResolver;
 import org.springframework.core.io.ResourceLoader;
 
@@ -8,7 +8,7 @@ import org.springframework.core.io.ResourceLoader;
  * @author julu
  * @date 2022/9/18 10:46
  */
-public class ResourceEditorRegistrar implements PropertyEditorRegister {
+public class ResourceEditorRegistrar implements PropertyEditorRegistrar {
 
     private final PropertyResolver propertyResolver;
 
@@ -20,7 +20,7 @@ public class ResourceEditorRegistrar implements PropertyEditorRegister {
     }
 
     @Override
-    public void registerCustomEditors(PropertyEditorRegister register) {
+    public void registerCustomEditors(PropertyEditorRegistrar register) {
 
     }
 }

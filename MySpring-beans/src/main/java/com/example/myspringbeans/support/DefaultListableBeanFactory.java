@@ -1,7 +1,7 @@
 package com.example.myspringbeans.support;
 
 import com.example.myspringbeans.BeansException;
-import com.example.myspringbeans.PropertyEditorRegister;
+import com.example.myspringbeans.PropertyEditorRegistrar;
 import com.example.myspringbeans.TypeConverter;
 import com.example.myspringbeans.config.BeanExpressionResolver;
 import com.example.myspringbeans.config.BeanPostProcessor;
@@ -91,11 +91,6 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
     }
 
     @Override
-    public void setBeanExpressionResolver(BeanExpressionResolver resolver) {
-
-    }
-
-    @Override
     public BeanExpressionResolver getBeanExpressionResolver() {
         return null;
     }
@@ -111,17 +106,12 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
     }
 
     @Override
-    public void addPropertyEditorRegistrar(PropertyEditorRegister register) {
-
-    }
-
-    @Override
     public void registerCustomEditor(Class<?> requiredType, Class<? extends PropertyEditor> propertyEditorClass) {
 
     }
 
     @Override
-    public void copyRegisteredEditorsTo(PropertyEditorRegister register) {
+    public void copyRegisteredEditorsTo(PropertyEditorRegistrar register) {
 
     }
 
@@ -148,11 +138,6 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
     @Override
     public String resolveEmbeddedValue(String value) {
         return null;
-    }
-
-    @Override
-    public void addBeanPostProcessor(BeanPostProcessor beanPostProcessor) {
-
     }
 
     @Override

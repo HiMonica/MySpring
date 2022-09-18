@@ -1,6 +1,6 @@
 package com.example.myspringbeans.config;
 
-import com.example.myspringbeans.PropertyEditorRegister;
+import com.example.myspringbeans.PropertyEditorRegistrar;
 import com.example.myspringbeans.TypeConverter;
 import com.example.myspringbeans.factory.BeanFactory;
 import com.example.myspringbeans.factory.HierarchicalBeanFactory;
@@ -103,7 +103,7 @@ public interface ConfigurableBeanFactory extends HierarchicalBeanFactory {
      *
      * @param register
      */
-    void addPropertyEditorRegistrar(PropertyEditorRegister register);
+    void addPropertyEditorRegistrar(PropertyEditorRegistrar register);
 
     /**
      * 类的所有属性注册给定的自定义属性编辑器
@@ -118,7 +118,7 @@ public interface ConfigurableBeanFactory extends HierarchicalBeanFactory {
      *
      * @param register
      */
-    void copyRegisteredEditorsTo(PropertyEditorRegister register);
+    void copyRegisteredEditorsTo(PropertyEditorRegistrar register);
 
     /**
      * 设置类型转化器
