@@ -3,11 +3,13 @@ package org.springframework.context.support;
 import com.example.myspringbeans.BeansException;
 import com.example.myspringbeans.config.ConfigurableListableBeanFactory;
 import com.example.myspringbeans.factory.BeanFactory;
+import com.example.myspringbeans.support.ResourceEditorRegistrar;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.expression.StandardBeanExpressionResolver;
 import org.springframework.context.weaving.ApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.Environment;
@@ -148,7 +150,12 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
     protected void prepareBeanFactory(ConfigurableListableBeanFactory beanFactory){
         //告诉bean工厂使用上下文的类加载器等
         beanFactory.setBeanClassLoader(getClassLoader());
+        beanFactory.setBeanExpressionResolver(new StandardBeanExpressionResolver(beanFactory.getBeanClassLoader()));
+        beanFactory.addPropertyEditorRegistrar(new ResourceEditorRegistrar(this, getEnvironment()));
 
+
+        //这一步中，给beanFactory注册了个beanPostProcessor，后处理器的类型是 ApplicationContextAwareProcessor
+        beanFactory.addBeanPostProcessor(new ApplicationContextAwareProcessor(this));
     }
 
     protected void initPropertySources(){

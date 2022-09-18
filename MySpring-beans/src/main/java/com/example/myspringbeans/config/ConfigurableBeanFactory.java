@@ -1,8 +1,14 @@
 package com.example.myspringbeans.config;
 
+import com.example.myspringbeans.PropertyEditorRegister;
+import com.example.myspringbeans.TypeConverter;
 import com.example.myspringbeans.factory.BeanFactory;
 import com.example.myspringbeans.factory.HierarchicalBeanFactory;
+import org.springframework.core.convert.ConversionService;
 import org.springframework.lang.Nullable;
+import org.springframework.util.StringValueResolver;
+
+import java.beans.PropertyEditor;
 
 /**
  * @author julu
@@ -79,5 +85,76 @@ public interface ConfigurableBeanFactory extends HierarchicalBeanFactory {
     @Nullable
     BeanExpressionResolver getBeanExpressionResolver();
 
+    /**
+     * 设置类型转化类
+     * @param conversionService
+     */
+    void setConversionService(@Nullable ConversionService conversionService);
+
+    /**
+     * 获取类型转化类
+     * @return
+     */
+    @Nullable
+    ConversionService getConversionService();
+
+    /**
+     * 添加一个应用于所有bean创建过程的propertyEditorRegister
+     *
+     * @param register
+     */
+    void addPropertyEditorRegistrar(PropertyEditorRegister register);
+
+    /**
+     * 类的所有属性注册给定的自定义属性编辑器
+     *
+     * @param requiredType
+     * @param propertyEditorClass
+     */
+    void registerCustomEditor(Class<?> requiredType, Class<? extends PropertyEditor> propertyEditorClass);
+
+    /**
+     * 使用自定义编辑器初始化指定的PropertyEditorRegister
+     *
+     * @param register
+     */
+    void copyRegisteredEditorsTo(PropertyEditorRegister register);
+
+    /**
+     * 设置类型转化器
+     *
+     * @param typeConverter
+     */
+    void setTypeConverter(TypeConverter typeConverter);
+
+    /**
+     * 获取此bean工厂的类型转化器
+     *
+     * @return
+     */
+    TypeConverter getTypeConverter();
+
+    /**
+     * 为嵌入的值(如注释属性)添加一个字符串解析器。
+     *
+     * @param valueResolver
+     */
+    void addEmbeddedValueResolver(StringValueResolver valueResolver);
+
+    /**
+     * 确定内嵌值解析器是否已就此注册
+     *
+     * @return
+     */
+    boolean hasEmbeddedValueResolver();
+
+    @Nullable
+    String resolveEmbeddedValue(String value);
+
+    void addBeanPostProcessor(BeanPostProcessor beanPostProcessor);
+
+    int getBeanPostProcessorCount();
+
+    void registerScope(String scopeName, Scope scope);
 
 }
