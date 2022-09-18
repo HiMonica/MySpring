@@ -108,6 +108,27 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 
             //准备bean工厂
             prepareBeanFactory(beanFactory);
+
+            try {
+                //bean工厂进行后置处理
+                postProcessBeanFactory(beanFactory);
+            }
+
+            catch (BeansException ex){
+
+                //销毁已经创建的单例避免dangling处理
+                destroyBeans();
+
+                //重置active的状态
+                cancelRefresh(ex);
+
+                //将异常抛给调用者
+                throw ex;
+            }
+
+            finally {
+
+            }
         }
     }
 
@@ -160,7 +181,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
         beanFactory.ignoreDependencyInterface(EnvironmentAware.class);
         // TODO: 2022/9/18 有些需要装载的类先后面用到再装载
 //        beanFactory.ignoreDependencyInterface();
-        
+
     }
 
     protected void initPropertySources(){
@@ -227,5 +248,9 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
     @Override
     public String getId() {
         return this.id;
+    }
+
+    protected void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory){
+
     }
 }

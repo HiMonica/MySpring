@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4be11a18-de06-4012-b9cb-87af949cc4e2" name="Changes" comment="beanFactory init perfect">
-      <change afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/factory/Aware.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MySpring-context/src/main/java/org/springframework/context/EnvironmentAware.java" afterDir="false" />
+    <list default="true" id="4be11a18-de06-4012-b9cb-87af949cc4e2" name="Changes" comment="beanFactory register">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/config/ConfigurableListableBeanFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/config/ConfigurableListableBeanFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/support/DefaultListableBeanFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/support/DefaultListableBeanFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MySpring-context/src/main/java/org/springframework/context/support/AbstractApplicationContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/src/main/java/org/springframework/context/support/AbstractApplicationContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-context/target/classes/org/springframework/context/support/AbstractApplicationContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/target/classes/org/springframework/context/support/AbstractApplicationContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +126,7 @@
       <workItem from="1660441302203" duration="21248000" />
       <workItem from="1662857098102" duration="18284000" />
       <workItem from="1662970205989" duration="3957000" />
-      <workItem from="1663082684157" duration="18206000" />
+      <workItem from="1663082684157" duration="18592000" />
     </task>
     <task id="LOCAL-00001" summary="类注册到beanFactory">
       <created>1662864131530</created>
@@ -197,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663478353105</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="beanFactory register">
+      <created>1663514748187</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1663514748187</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,7 +225,8 @@
     <MESSAGE value="完善bean的初始化过程" />
     <MESSAGE value="beanFactory nullError fix" />
     <MESSAGE value="beanFactory init perfect" />
-    <option name="LAST_COMMIT_MESSAGE" value="beanFactory init perfect" />
+    <MESSAGE value="beanFactory register" />
+    <option name="LAST_COMMIT_MESSAGE" value="beanFactory register" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -236,7 +238,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/MySpring-context/src/main/java/org/springframework/context/support/AbstractApplicationContext.java</url>
-          <line>152</line>
+          <line>173</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -246,7 +248,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/MySpring-context/src/main/java/org/springframework/context/support/AbstractApplicationContext.java</url>
-          <line>196</line>
+          <line>217</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
