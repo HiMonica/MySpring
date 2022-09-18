@@ -1,5 +1,6 @@
 package org.springframework.core.io.support;
 
+import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.util.Assert;
 
@@ -14,5 +15,15 @@ public class PathMatchingResourcePatternResolver implements ResourcePatternResol
     public PathMatchingResourcePatternResolver(ResourceLoader resourceLoader){
         Assert.notNull(resourceLoader, "ResourceLoader must not be null");
         this.resourceLoader = resourceLoader;
+    }
+
+    @Override
+    public Resource getResource(String location) {
+        return null;
+    }
+
+    @Override
+    public ClassLoader getClassLoader() {
+        return null;
     }
 }
