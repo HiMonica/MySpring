@@ -3,6 +3,7 @@ package org.springframework.context.support;
 import com.example.myspringbeans.BeansException;
 import com.example.myspringbeans.config.ConfigurableListableBeanFactory;
 import com.example.myspringbeans.factory.BeanFactory;
+import com.example.myspringbeans.factory.config.BeanFactoryPostProcessor;
 import com.example.myspringbeans.support.ResourceEditorRegistrar;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -21,7 +22,9 @@ import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.lang.Nullable;
 import org.springframework.util.ObjectUtils;
 
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -79,6 +82,11 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
     @Nullable
     private Set<ApplicationEvent> earlyApplicationEvents;
 
+    /**
+     * 要在刷新是应用的BeanFactoryPostProcessors
+     */
+    private final List<BeanFactoryPostProcessor> beanFactoryPostProcessors = new ArrayList<>();
+
     protected final Log logger = LogFactory.getLog(getClass());
 
     @Nullable
@@ -112,6 +120,15 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
             try {
                 //bean工厂进行后置处理
                 postProcessBeanFactory(beanFactory);
+
+                //注册并执行beanFactoryPostProcessor
+                invokeBeanFactoryPostProcessors(beanFactory);
+
+                //注册beanPostProcessor 主体是bean，这一步中没有执行，至于注册动作
+
+                //初始化消息资源
+
+                //初始化时间传播器
             }
 
             catch (BeansException ex){
@@ -252,5 +269,22 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 
     protected void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory){
 
+    }
+
+    /**
+     * 实例化并调用所有注册的BeanFactoryPostProcessor,给初明确的顺序
+     * @param beanFactory
+     */
+    protected void invokeBeanFactoryPostProcessors(ConfigurableListableBeanFactory beanFactory){
+        // getBeanFactoryPostProcessors();
+        PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(beanFactory, getBeanFactoryPostProcessors());
+    }
+
+    /**
+     * 获取当前应用上下文beanFactoryPostProcessor变量
+     * @return
+     */
+    public List<BeanFactoryPostProcessor> getBeanFactoryPostProcessors(){
+        return this.beanFactoryPostProcessors;
     }
 }
