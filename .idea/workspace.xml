@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4be11a18-de06-4012-b9cb-87af949cc4e2" name="Changes" comment="默认单例bean注册类实现(DefaultSingletonBeanRegistry)">
+    <list default="true" id="4be11a18-de06-4012-b9cb-87af949cc4e2" name="Changes" comment="beanFactory注册实例化默认对象最顶层的类">
+      <change afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/env/AbstractEnvironment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/env/ReadOnlySystemAttributesMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/support/BeanDefinitionRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/support/BeanDefinitionRegistry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/support/DefaultListableBeanFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/support/DefaultListableBeanFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/env/StandardEnvironment.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/env/StandardEnvironment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/target/classes/com/myspringcore/core/env/StandardEnvironment.class" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/target/classes/com/myspringcore/core/env/StandardEnvironment.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +20,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -130,7 +132,7 @@
       <workItem from="1662970205989" duration="3957000" />
       <workItem from="1663082684157" duration="25259000" />
       <workItem from="1664000003553" duration="9000" />
-      <workItem from="1664069268652" duration="13819000" />
+      <workItem from="1664069268652" duration="14898000" />
     </task>
     <task id="LOCAL-00001" summary="类注册到beanFactory">
       <created>1662864131530</created>
@@ -244,7 +246,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664096187871</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="beanFactory注册实例化默认对象最顶层的类">
+      <created>1664097554699</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1664097554699</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,7 +284,8 @@
     <MESSAGE value="别名接口" />
     <MESSAGE value="beanFactory register" />
     <MESSAGE value="默认单例bean注册类实现(DefaultSingletonBeanRegistry)" />
-    <option name="LAST_COMMIT_MESSAGE" value="默认单例bean注册类实现(DefaultSingletonBeanRegistry)" />
+    <MESSAGE value="beanFactory注册实例化默认对象最顶层的类" />
+    <option name="LAST_COMMIT_MESSAGE" value="beanFactory注册实例化默认对象最顶层的类" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -312,13 +322,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/support/AbstractApplicationContext.java</url>
-          <line>128</line>
-          <option name="timeStamp" value="18" />
+          <line>138</line>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/support/AbstractApplicationContext.java</url>
-          <line>138</line>
-          <option name="timeStamp" value="20" />
+          <line>232</line>
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
