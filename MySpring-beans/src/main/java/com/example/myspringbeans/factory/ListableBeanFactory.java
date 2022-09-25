@@ -1,6 +1,7 @@
 package com.example.myspringbeans.factory;
 
 import com.example.myspringbeans.BeansException;
+import com.example.myspringbeans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.core.ResolvableType;
 import org.springframework.lang.Nullable;
@@ -67,5 +68,12 @@ public interface ListableBeanFactory extends BeanFactory{
     @Nullable
     <A extends Annotation> A findAnnotationOnBean(String beanName, Class<A> annotationType) throws NoSuchBeanDefinitionException;
 
-
+    /**
+     * 返回指定bean的注册BeanDefinition，允许访问
+     *
+     * @param beanName
+     * @return
+     * @throws NoSuchBeanDefinitionException
+     */
+    BeanDefinition getBeanDefinition(String beanName) throws NoSuchBeanDefinitionException;
 }

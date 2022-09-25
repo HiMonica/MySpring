@@ -326,4 +326,13 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
     public List<BeanFactoryPostProcessor> getBeanFactoryPostProcessors(){
         return this.beanFactoryPostProcessors;
     }
+
+    /**
+     * 实例化并注册所有BeanPostProcessor bean，如果给出明确的顺序。
+     *
+     * @param beanFactory
+     */
+    protected void registerBeanPostProcessors(ConfigurableListableBeanFactory beanFactory){
+        PostProcessorRegistrationDelegate.registerBeanPostProcessors(beanFactory, this);
+    }
 }

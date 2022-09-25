@@ -19,6 +19,13 @@ public interface Log {
     boolean isTraceEnabled();
 
     /**
+     * 是否启动info日志级别
+     *
+     * @return
+     */
+    boolean isInfoEnabled();
+
+    /**
      * 记录trace级别日志
      * @param message
      */
@@ -29,4 +36,10 @@ public interface Log {
      * @param message
      */
     void debug(Object message);
+
+    /**
+     * 记录info级别日志
+     * @param message
+     */
+    void info(Object message);
 }
