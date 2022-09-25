@@ -1,5 +1,6 @@
-package org.springframework.cglib.core;
+package com.myspringcore.cglib.core;
 
+import org.springframework.cglib.core.*;
 import org.springframework.cglib.core.internal.Function;
 import org.springframework.cglib.core.internal.LoadingCache;
 

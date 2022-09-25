@@ -1,10 +1,10 @@
-package com.myspringcore.context.support;
+package com.example.myspringbeans.context.support;
 
 import com.example.myspringbeans.BeansException;
 import com.example.myspringbeans.config.ConfigurableListableBeanFactory;
+import com.example.myspringbeans.context.weaving.ApplicationContext;
 import com.example.myspringbeans.support.DefaultListableBeanFactory;
 import org.springframework.context.ApplicationContextException;
-import com.myspringcore.context.weaving.ApplicationContext;
 import org.springframework.lang.Nullable;
 
 import java.io.IOException;

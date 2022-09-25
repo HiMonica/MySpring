@@ -1,6 +1,6 @@
 package com.julu.java;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import com.example.myspringbeans.context.support.ClassPathXmlApplicationContext;
 
 /**
  * @author julu

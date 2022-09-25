@@ -1,4 +1,4 @@
-package org.springframework.core;
+package com.myspringcore.core;
 
 /**
  * 管理别名的通用接口，作为超级接口

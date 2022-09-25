@@ -4,11 +4,99 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4be11a18-de06-4012-b9cb-87af949cc4e2" name="Changes" comment="beanFactoryPostProcessor">
-      <change afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/support/BeanDefinitionRegistry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/org/springframework/core/AliasRegistry.java" afterDir="false" />
+    <list default="true" id="4be11a18-de06-4012-b9cb-87af949cc4e2" name="Changes" comment="别名接口">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-context/src/main/java/org/springframework/context/support/PostProcessorRegistrationDelegate.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/src/main/java/org/springframework/context/support/PostProcessorRegistrationDelegate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-beans/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-beans/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/config/ConfigurableBeanFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/config/ConfigurableBeanFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/config/EmbeddedValueResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/config/EmbeddedValueResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/config/SingletonBeanRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/config/SingletonBeanRegistry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/factory/config/BeanDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/factory/config/BeanDefinition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/support/BeanDefinitionRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/support/BeanDefinitionRegistry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/support/DefaultListableBeanFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/support/DefaultListableBeanFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/support/ResourceEditorRegistrar.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/support/ResourceEditorRegistrar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/ApplicationEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/ApplicationEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/ApplicationListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/ApplicationListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/ConfigurableApplicationContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/ConfigurableApplicationContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/EnvironmentAware.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/EnvironmentAware.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/expression/StandardBeanExpressionResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/expression/StandardBeanExpressionResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/support/AbstractApplicationContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/support/AbstractApplicationContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/support/AbstractRefreshableApplicationContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/support/AbstractRefreshableApplicationContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/support/AbstractXmlApplicationContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/support/AbstractXmlApplicationContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/support/ApplicationContextAwareProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/support/ApplicationContextAwareProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/support/ClassPathXmlApplicationContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/support/ClassPathXmlApplicationContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/support/PostProcessorRegistrationDelegate.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/support/PostProcessorRegistrationDelegate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/weaving/ApplicationContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/weaving/ApplicationContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-context/src/test/java/com/julu/java/MyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/src/test/java/com/julu/java/MyTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-context/target/classes/org/springframework/context/ApplicationEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-context/target/classes/org/springframework/context/ApplicationListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-context/target/classes/org/springframework/context/ConfigurableApplicationContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-context/target/classes/org/springframework/context/expression/StandardBeanExpressionResolver.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-context/target/classes/org/springframework/context/support/AbstractApplicationContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-context/target/classes/org/springframework/context/support/AbstractRefreshableApplicationContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-context/target/classes/org/springframework/context/support/AbstractXmlApplicationContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-context/target/classes/org/springframework/context/support/ApplicationContextAwareProcessor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-context/target/classes/org/springframework/context/support/ClassPathXmlApplicationContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-context/target/classes/org/springframework/context/weaving/ApplicationContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-context/target/test-classes/com/julu/java/MyTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/target/test-classes/com/julu/java/MyTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/cglib/core/AbstractClassGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/cglib/core/AbstractClassGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/cglib/core/ClassGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/cglib/core/ClassGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/cglib/core/DefaultGeneratorStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/cglib/core/DefaultGeneratorStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/cglib/core/GeneratorStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/cglib/core/GeneratorStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/cglib/proxy/Enhancer.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/cglib/proxy/Enhancer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/AliasRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/AliasRegistry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/convert/ConversionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/convert/ConversionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/env/ConfigurableEnvironment.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/env/ConfigurableEnvironment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/env/ConfigurablePropertyResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/env/ConfigurablePropertyResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/env/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/env/Environment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/env/EnvironmentCapable.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/env/EnvironmentCapable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/env/PropertyResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/env/PropertyResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/env/StandardEnvironment.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/env/StandardEnvironment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/io/DefaultResourceLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/io/DefaultResourceLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/io/InputStreamSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/io/InputStreamSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/io/Resource.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/io/Resource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/io/ResourceLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/io/ResourceLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/io/support/PathMatchingResourcePatternResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/io/support/PathMatchingResourcePatternResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/io/support/ResourcePatternResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/io/support/ResourcePatternResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/util/ResourceUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/util/ResourceUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/util/StringValueResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/util/StringValueResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/target/classes/org/springframework/cglib/core/AbstractClassGenerator$ClassLoaderData$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/target/classes/org/springframework/cglib/core/AbstractClassGenerator$ClassLoaderData$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/target/classes/org/springframework/cglib/core/AbstractClassGenerator$ClassLoaderData$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/target/classes/org/springframework/cglib/core/AbstractClassGenerator$ClassLoaderData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/target/classes/org/springframework/cglib/core/AbstractClassGenerator$Source.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/target/classes/org/springframework/cglib/core/AbstractClassGenerator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/target/classes/org/springframework/cglib/core/ClassGenerator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/target/classes/org/springframework/cglib/core/DefaultGeneratorStrategy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/target/classes/org/springframework/cglib/core/GeneratorStrategy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/target/classes/org/springframework/cglib/proxy/Enhancer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/target/classes/org/springframework/core/convert/ConversionService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/target/classes/org/springframework/core/env/Environment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/target/classes/org/springframework/core/env/EnvironmentCapable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/target/classes/org/springframework/core/env/PropertyResolver.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/target/classes/org/springframework/core/io/DefaultResourceLoader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/target/classes/org/springframework/core/io/InputStreamSource.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/target/classes/org/springframework/core/io/Resource.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/target/classes/org/springframework/core/io/ResourceLoader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/target/classes/org/springframework/core/io/support/PathMatchingResourcePatternResolver.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/target/classes/org/springframework/core/io/support/ResourcePatternResolver.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/target/classes/org/springframework/util/ResourceUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/target/classes/org/springframework/util/StringValueResolver.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-jcl/src/main/java/com/apache/commons/logging/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-jcl/src/main/java/com/apache/commons/logging/Log.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-jcl/src/main/java/com/apache/commons/logging/LogAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-jcl/src/main/java/com/apache/commons/logging/LogAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-jcl/src/main/java/com/apache/commons/logging/LogFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-jcl/src/main/java/com/apache/commons/logging/LogFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-jcl/target/classes/org/apache/commons/logging/Log.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-jcl/target/classes/org/apache/commons/logging/LogAdapter$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-jcl/target/classes/org/apache/commons/logging/LogAdapter$JavaUtilAdapter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-jcl/target/classes/org/apache/commons/logging/LogAdapter$JavaUtilLog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-jcl/target/classes/org/apache/commons/logging/LogAdapter$Log4jAdapter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-jcl/target/classes/org/apache/commons/logging/LogAdapter$Log4jLog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-jcl/target/classes/org/apache/commons/logging/LogAdapter$LogApi.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-jcl/target/classes/org/apache/commons/logging/LogAdapter$Slf4jAdapter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-jcl/target/classes/org/apache/commons/logging/LogAdapter$Slf4jLocationAwareLog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-jcl/target/classes/org/apache/commons/logging/LogAdapter$Slf4jLog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-jcl/target/classes/org/apache/commons/logging/LogAdapter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-jcl/target/classes/org/apache/commons/logging/LogFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +107,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -53,13 +141,14 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/MySpring-context/src/main/java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/MySpring-core/src/main/java/org/springframework/core/io" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="Errors" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans" />
       <recent name="$PROJECT_DIR$/MySpring-core/src/main/java/org/springframework/core/io" />
     </key>
   </component>
@@ -128,7 +217,9 @@
       <workItem from="1660441302203" duration="21248000" />
       <workItem from="1662857098102" duration="18284000" />
       <workItem from="1662970205989" duration="3957000" />
-      <workItem from="1663082684157" duration="22190000" />
+      <workItem from="1663082684157" duration="25259000" />
+      <workItem from="1664000003553" duration="9000" />
+      <workItem from="1664069268652" duration="4698000" />
     </task>
     <task id="LOCAL-00001" summary="类注册到beanFactory">
       <created>1662864131530</created>
@@ -214,7 +305,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663601350445</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="别名接口">
+      <created>1663603607536</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1663603607536</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -243,7 +341,8 @@
     <MESSAGE value="beanFactory init perfect" />
     <MESSAGE value="beanFactory register" />
     <MESSAGE value="beanFactoryPostProcessor" />
-    <option name="LAST_COMMIT_MESSAGE" value="beanFactoryPostProcessor" />
+    <MESSAGE value="别名接口" />
+    <option name="LAST_COMMIT_MESSAGE" value="别名接口" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -254,27 +353,27 @@
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/MySpring-context/src/main/java/org/springframework/context/support/AbstractApplicationContext.java</url>
+          <url>file://$PROJECT_DIR$/MySpring-context/src/main/java/com/myspringcore/context/support/AbstractApplicationContext.java</url>
           <line>190</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/MySpring-context/src/main/java/org/springframework/context/support/AbstractApplicationContext.java</url>
+          <url>file://$PROJECT_DIR$/MySpring-context/src/main/java/com/myspringcore/context/support/AbstractApplicationContext.java</url>
           <line>111</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/MySpring-context/src/main/java/org/springframework/context/support/AbstractApplicationContext.java</url>
+          <url>file://$PROJECT_DIR$/MySpring-context/src/main/java/com/myspringcore/context/support/AbstractApplicationContext.java</url>
           <line>234</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/MySpring-context/src/main/java/org/springframework/context/support/AbstractRefreshableApplicationContext.java</url>
+          <url>file://$PROJECT_DIR$/MySpring-context/src/main/java/com/myspringcore/context/support/AbstractRefreshableApplicationContext.java</url>
           <line>71</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/MySpring-context/src/main/java/org/springframework/context/support/AbstractRefreshableApplicationContext.java</url>
+          <url>file://$PROJECT_DIR$/MySpring-context/src/main/java/com/myspringcore/context/support/AbstractRefreshableApplicationContext.java</url>
           <line>45</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>

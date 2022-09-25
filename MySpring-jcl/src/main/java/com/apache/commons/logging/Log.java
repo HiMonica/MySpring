@@ -1,4 +1,4 @@
-package org.apache.commons.logging;
+package com.apache.commons.logging;
 
 /**
  * @author julu

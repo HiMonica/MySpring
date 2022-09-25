@@ -1,4 +1,4 @@
-package org.springframework.core.env;
+package com.myspringcore.core.env;
 
 public interface Environment {
 }

@@ -1,4 +1,4 @@
-package org.apache.commons.logging;
+package com.apache.commons.logging;
 
 /**
  * @author julu
@@ -11,7 +11,7 @@ public abstract class LogFactory {
     }
 
     public static Log getLog(String name){
-        return LogAdapter.createLog(name);
+        return com.apache.commons.logging.LogAdapter.createLog(name);
     }
 
 }

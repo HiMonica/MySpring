@@ -1,4 +1,4 @@
-package com.myspringcore.context.support;
+package com.example.myspringbeans.context.support;
 
 import com.example.myspringbeans.config.ConfigurableListableBeanFactory;
 import com.example.myspringbeans.factory.config.BeanFactoryPostProcessor;

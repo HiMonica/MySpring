@@ -1,16 +1,18 @@
-package com.myspringcore.context;
+package com.example.myspringbeans.context;
 
 import com.example.myspringbeans.BeansException;
 import com.example.myspringbeans.config.ConfigurableListableBeanFactory;
+import com.example.myspringbeans.context.weaving.ApplicationContext;
+import com.myspringcore.core.env.ConfigurableEnvironment;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
-import com.myspringcore.context.weaving.ApplicationContext;
-import org.springframework.core.env.ConfigurableEnvironment;
+
+
 import org.springframework.lang.Nullable;
 
 /**
  * 这里封装了配置和生命周期方法，以避免使用
  */
-public interface ConfigurableApplicationContext extends com.myspringcore.context.weaving.ApplicationContext {
+public interface ConfigurableApplicationContext extends ApplicationContext {
 
     String CONFIG_LOCATION_DELIMITERS = ",; \t\n";
 

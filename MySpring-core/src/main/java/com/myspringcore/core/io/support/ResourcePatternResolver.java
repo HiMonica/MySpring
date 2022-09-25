@@ -1,6 +1,6 @@
-package org.springframework.core.io.support;
+package com.myspringcore.core.io.support;
 
-import org.springframework.core.io.ResourceLoader;
+import com.myspringcore.core.io.ResourceLoader;
 
 /**
  * @author julu

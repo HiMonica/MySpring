@@ -1,4 +1,4 @@
-package org.springframework.core.convert;
+package com.myspringcore.core.convert;
 
 /**
  * @author julu

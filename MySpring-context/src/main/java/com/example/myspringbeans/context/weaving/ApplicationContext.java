@@ -1,4 +1,4 @@
-package com.myspringcore.context.weaving;
+package com.example.myspringbeans.context.weaving;
 
 import com.example.myspringbeans.factory.HierarchicalBeanFactory;
 import com.example.myspringbeans.factory.ListableBeanFactory;

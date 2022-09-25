@@ -1,4 +1,4 @@
-package com.myspringcore.context.expression;
+package com.example.myspringbeans.context.expression;
 
 import com.example.myspringbeans.BeansException;
 import com.example.myspringbeans.config.BeanExpressionContext;

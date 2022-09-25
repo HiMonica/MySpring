@@ -1,4 +1,4 @@
-package org.springframework.cglib.core;
+package com.myspringcore.cglib.core;
 
 /**
  * @author julu

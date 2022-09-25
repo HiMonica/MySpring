@@ -1,4 +1,4 @@
-package org.springframework.cglib.proxy;
+package com.myspringcore.cglib.proxy;
 
 /**
  * @author julu

@@ -4,15 +4,14 @@ import com.example.myspringbeans.BeansException;
 import com.example.myspringbeans.PropertyEditorRegistrar;
 import com.example.myspringbeans.TypeConverter;
 import com.example.myspringbeans.config.BeanExpressionResolver;
-import com.example.myspringbeans.config.BeanPostProcessor;
 import com.example.myspringbeans.config.ConfigurableListableBeanFactory;
 import com.example.myspringbeans.config.Scope;
 import com.example.myspringbeans.factory.BeanFactory;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.core.ResolvableType;
-import org.springframework.core.convert.ConversionService;
+import com.myspringcore.core.convert.ConversionService;
 import org.springframework.lang.Nullable;
-import org.springframework.util.StringValueResolver;
+import com.myspringcore.util.StringValueResolver;
 
 import java.beans.PropertyEditor;
 import java.io.Serializable;
@@ -242,6 +241,11 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 
     @Override
     public void preInstantiateSingletons() throws BeansException {
+
+    }
+
+    @Override
+    public void registerSingleton(String beanName, Object singletonObject) {
 
     }
 }

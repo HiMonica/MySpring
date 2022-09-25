@@ -1,7 +1,7 @@
-package org.springframework.core.io;
+package com.myspringcore.core.io;
 
+import com.myspringcore.util.ResourceUtils;
 import org.springframework.lang.Nullable;
-import org.springframework.util.ResourceUtils;
 
 /**
  * @author julu

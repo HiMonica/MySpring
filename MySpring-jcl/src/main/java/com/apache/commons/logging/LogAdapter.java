@@ -1,4 +1,4 @@
-package org.apache.commons.logging;
+package com.apache.commons.logging;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.spi.ExtendedLogger;

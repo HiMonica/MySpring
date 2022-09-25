@@ -1,7 +1,7 @@
 package com.example.myspringbeans.config;
 
 import org.springframework.lang.Nullable;
-import org.springframework.util.StringValueResolver;
+import com.myspringcore.util.StringValueResolver;
 
 /**
  * @author julu

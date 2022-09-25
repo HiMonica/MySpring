@@ -1,4 +1,4 @@
-package org.springframework.util;
+package com.myspringcore.util;
 
 import org.springframework.lang.Nullable;
 

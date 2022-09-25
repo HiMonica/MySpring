@@ -1,7 +1,7 @@
-package org.springframework.core.io.support;
+package com.myspringcore.core.io.support;
 
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.ResourceLoader;
+import com.myspringcore.core.io.Resource;
+import com.myspringcore.core.io.ResourceLoader;
 import org.springframework.util.Assert;
 
 /**

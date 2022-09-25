@@ -1,10 +1,12 @@
 package com.example.myspringbeans.support;
 
 import com.example.myspringbeans.PropertyEditorRegistrar;
-import org.springframework.core.env.PropertyResolver;
-import org.springframework.core.io.ResourceLoader;
+import com.myspringcore.core.env.PropertyResolver;
+import com.myspringcore.core.io.ResourceLoader;
 
 /**
+ * 用于bean在创建一个ApplicationContext资源编辑器。使用在AbstractApplicationContext
+ *
  * @author julu
  * @date 2022/9/18 10:46
  */

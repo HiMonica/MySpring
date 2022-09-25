@@ -1,4 +1,4 @@
-package com.myspringcore.context;
+package com.example.myspringbeans.context;
 
 import com.example.myspringbeans.factory.Aware;
 import com.myspringcore.core.env.Environment;

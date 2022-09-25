@@ -4,9 +4,9 @@ import com.example.myspringbeans.PropertyEditorRegistrar;
 import com.example.myspringbeans.TypeConverter;
 import com.example.myspringbeans.factory.BeanFactory;
 import com.example.myspringbeans.factory.HierarchicalBeanFactory;
-import org.springframework.core.convert.ConversionService;
+import com.myspringcore.core.convert.ConversionService;
 import org.springframework.lang.Nullable;
-import org.springframework.util.StringValueResolver;
+import com.myspringcore.util.StringValueResolver;
 
 import java.beans.PropertyEditor;
 
@@ -14,7 +14,7 @@ import java.beans.PropertyEditor;
  * @author julu
  * @date 2022/9/11 09:51
  */
-public interface ConfigurableBeanFactory extends HierarchicalBeanFactory {
+public interface ConfigurableBeanFactory extends HierarchicalBeanFactory, SingletonBeanRegistry{
 
     /**
      * 模式状态

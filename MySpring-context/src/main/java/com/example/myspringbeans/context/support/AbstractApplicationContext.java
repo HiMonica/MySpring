@@ -1,23 +1,24 @@
-package com.myspringcore.context.support;
+package com.example.myspringbeans.context.support;
 
 import com.apache.commons.logging.Log;
+import com.apache.commons.logging.LogFactory;
 import com.example.myspringbeans.BeansException;
 import com.example.myspringbeans.config.ConfigurableListableBeanFactory;
+import com.example.myspringbeans.context.ApplicationEvent;
+import com.example.myspringbeans.context.ApplicationListener;
+import com.example.myspringbeans.context.ConfigurableApplicationContext;
+import com.example.myspringbeans.context.EnvironmentAware;
+import com.example.myspringbeans.context.expression.StandardBeanExpressionResolver;
+import com.example.myspringbeans.context.weaving.ApplicationContext;
 import com.example.myspringbeans.factory.BeanFactory;
 import com.example.myspringbeans.factory.config.BeanFactoryPostProcessor;
 import com.example.myspringbeans.support.ResourceEditorRegistrar;
-import com.myspringcore.context.ApplicationEvent;
-import com.myspringcore.context.ApplicationListener;
-import com.myspringcore.context.ConfigurableApplicationContext;
-import com.myspringcore.context.EnvironmentAware;
-import com.myspringcore.context.expression.StandardBeanExpressionResolver;
-import com.myspringcore.context.weaving.ApplicationContext;
+import com.myspringcore.core.env.ConfigurableEnvironment;
+import com.myspringcore.core.env.StandardEnvironment;
 import com.myspringcore.core.io.DefaultResourceLoader;
+import com.myspringcore.core.io.ResourceLoader;
 import com.myspringcore.core.io.support.PathMatchingResourcePatternResolver;
 import com.myspringcore.core.io.support.ResourcePatternResolver;
-import com.apache.commons.logging.LogFactory;
-import org.springframework.core.env.ConfigurableEnvironment;
-import org.springframework.core.env.StandardEnvironment;
 import org.springframework.lang.Nullable;
 import org.springframework.util.ObjectUtils;
 
@@ -28,7 +29,7 @@ import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public abstract class AbstractApplicationContext extends DefaultResourceLoader
-        implements com.myspringcore.context.ConfigurableApplicationContext {
+        implements ConfigurableApplicationContext {
 
     /**
      * 刷新和销毁的同步监视器
@@ -59,7 +60,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
     /**
      * 指定监听器
      */
-    private final Set<com.myspringcore.context.ApplicationListener<?>> applicationListeners = new LinkedHashSet<>();
+    private final Set<ApplicationListener<?>> applicationListeners = new LinkedHashSet<>();
 
     /**
      * 本地监听器，需要在初始化的时候refresh
@@ -73,13 +74,30 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
     private String id = ObjectUtils.identityToString(this);
 
     @Nullable
-    private com.myspringcore.core.io.support.ResourcePatternResolver resourcePatternResolver;
+    private ResourcePatternResolver resourcePatternResolver;
 
     @Nullable
     private ApplicationContext parent;
 
     @Nullable
     private Set<ApplicationEvent> earlyApplicationEvents;
+
+    /**
+     * 工厂中的LoadTimeWeaver bean的名称。如果提供了这样的bean，
+     * 上下文将使用一个临时ClassLoader进行类型匹配，按顺序允许
+     * LoadTimeWeaver处理所有实际的bean类。
+     */
+    String LOAD_TIME_WEAVER_BEAN_NAME = "loadTimeWeaver";
+
+    /**
+     * 工厂中System属性bean的名称
+     */
+    String SYSTEM_PROPERTIES_BEAN_NAME = "systemProperties";
+
+    /**
+     * 工厂中系统环境bean的名称
+     */
+    String SYSTEM_ENVIRONMENT_BEAN_NAME = "systemEnvironment";
 
     /**
      * 要在刷新是应用的BeanFactoryPostProcessors
@@ -113,7 +131,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
             //类注册到bean factory
             ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory();
 
-            //准备bean工厂
+            //bean工厂准备工作：主要是将一些必要的东西注册进去
             prepareBeanFactory(beanFactory);
 
             try {
@@ -188,16 +206,38 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
     protected void prepareBeanFactory(ConfigurableListableBeanFactory beanFactory){
         //告诉bean工厂使用上下文的类加载器等
         beanFactory.setBeanClassLoader(getClassLoader());
+        //指定表达式的解析策略
         beanFactory.setBeanExpressionResolver(new StandardBeanExpressionResolver(beanFactory.getBeanClassLoader()));
+        //资源编辑器
         beanFactory.addPropertyEditorRegistrar(new ResourceEditorRegistrar(this, getEnvironment()));
 
 
         //这一步中，给beanFactory注册了个beanPostProcessor，后处理器的类型是 ApplicationContextAwareProcessor
-        beanFactory.addBeanPostProcessor(new com.myspringcore.context.support.ApplicationContextAwareProcessor(this));
+        beanFactory.addBeanPostProcessor(new ApplicationContextAwareProcessor(this));
+        //下面是一些需要忽略的接口，都是一些继承Aware的接口
         beanFactory.ignoreDependencyInterface(EnvironmentAware.class);
         // TODO: 2022/9/18 有些需要装载的类先后面用到再装载
 //        beanFactory.ignoreDependencyInterface();
 
+        //
+        beanFactory.registerResolvableDependency(BeanFactory.class, beanFactory);
+        beanFactory.registerResolvableDependency(ResourceLoader.class, this);
+        beanFactory.registerResolvableDependency(ApplicationContext.class, this);
+
+        //将早期后处理器注册为applicationlistener，用于检测内部bean。
+//        beanFactory.addBeanPostProcessor();
+
+        //检车
+        if (!beanFactory.containsBean(LOAD_TIME_WEAVER_BEAN_NAME)){
+            //不存在这个名称的bean，注册
+            beanFactory.registerSingleton(LOAD_TIME_WEAVER_BEAN_NAME, getEnvironment());
+        }
+        if (!beanFactory.containsLocalBean(SYSTEM_PROPERTIES_BEAN_NAME)){
+            beanFactory.registerSingleton(SYSTEM_PROPERTIES_BEAN_NAME, getEnvironment().getSystemProperties());
+        }
+        if (!beanFactory.containsBean(SYSTEM_ENVIRONMENT_BEAN_NAME)){
+            beanFactory.registerSingleton(SYSTEM_ENVIRONMENT_BEAN_NAME, getEnvironment().getSystemEnvironment());
+        }
     }
 
     protected void initPropertySources(){
@@ -252,7 +292,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 
     @Nullable
     protected BeanFactory getInternalParentBeanFactory(){
-        return (getParent() instanceof com.myspringcore.context.ConfigurableApplicationContext ?
+        return (getParent() instanceof ConfigurableApplicationContext ?
                 ((ConfigurableApplicationContext) getParent()).getBeanFactory() : getParent());
     }
 
