@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4be11a18-de06-4012-b9cb-87af949cc4e2" name="Changes" comment="beanFactory注册实例化默认对象最顶层的类">
-      <change afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/env/AbstractEnvironment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/env/ReadOnlySystemAttributesMap.java" afterDir="false" />
+    <list default="true" id="4be11a18-de06-4012-b9cb-87af949cc4e2" name="Changes" comment="SystemProperties空指针异常fix">
+      <change afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/SpringProperties.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/env/StandardEnvironment.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/env/StandardEnvironment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-core/target/classes/com/myspringcore/core/env/StandardEnvironment.class" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/target/classes/com/myspringcore/core/env/StandardEnvironment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/env/AbstractEnvironment.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/env/AbstractEnvironment.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +130,7 @@
       <workItem from="1662970205989" duration="3957000" />
       <workItem from="1663082684157" duration="25259000" />
       <workItem from="1664000003553" duration="9000" />
-      <workItem from="1664069268652" duration="14898000" />
+      <workItem from="1664069268652" duration="15907000" />
     </task>
     <task id="LOCAL-00001" summary="类注册到beanFactory">
       <created>1662864131530</created>
@@ -253,7 +251,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664097554699</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="SystemProperties空指针异常fix">
+      <created>1664098641489</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1664098641489</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -285,7 +290,8 @@
     <MESSAGE value="beanFactory register" />
     <MESSAGE value="默认单例bean注册类实现(DefaultSingletonBeanRegistry)" />
     <MESSAGE value="beanFactory注册实例化默认对象最顶层的类" />
-    <option name="LAST_COMMIT_MESSAGE" value="beanFactory注册实例化默认对象最顶层的类" />
+    <MESSAGE value="SystemProperties空指针异常fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="SystemProperties空指针异常fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

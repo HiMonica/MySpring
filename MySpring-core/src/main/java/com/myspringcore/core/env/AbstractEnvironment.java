@@ -1,11 +1,13 @@
 package com.myspringcore.core.env;
 
+import com.myspringcore.core.SpringProperties;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.core.env.MissingRequiredPropertiesException;
 import org.springframework.lang.Nullable;
 
 import java.security.AccessControlException;
+import java.util.Collections;
 import java.util.Map;
 
 /**
@@ -15,6 +17,8 @@ import java.util.Map;
 public abstract class AbstractEnvironment implements ConfigurableEnvironment{
 
     protected final Log logger = LogFactory.getLog(getClass());
+
+    public static final String IGNORE_GETENV_PROPERTY_NAME = "spring.getenv.ignore";
 
     @Override
     public Map<String, Object> getSystemProperties() {
@@ -45,8 +49,35 @@ public abstract class AbstractEnvironment implements ConfigurableEnvironment{
 
     @Override
     public Map<String, Object> getSystemEnvironment() {
-        return null;
+        if (suppressGetenvAccess()){
+            return Collections.emptyMap();
+        }
+        try {
+            return (Map) System.getenv();
+        }
+        catch (AccessControlException ex){
+            return (Map) new ReadOnlySystemAttributesMap(){
+
+                @Override
+                protected String getSystemAttribute(String attributeName) {
+                    try {
+                        return System.getenv(attributeName);
+                    } catch (AccessControlException ex) {
+                        if (logger.isInfoEnabled()) {
+                            logger.info("Caught AccessControlException when accessing system environment variable '" +
+                                    attributeName + "'; its value will be returned [null]. Reason: " + ex.getMessage());
+                        }
+                        return null;
+                    }
+                }
+            };
+        }
     }
+
+    protected boolean suppressGetenvAccess(){
+        return SpringProperties.getFlag(IGNORE_GETENV_PROPERTY_NAME);
+    }
+
 
     @Override
     public void validateRequiredProperties() throws MissingRequiredPropertiesException {
