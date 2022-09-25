@@ -1,9 +1,9 @@
-package org.springframework.context.weaving;
+package com.myspringcore.context.weaving;
 
 import com.example.myspringbeans.factory.HierarchicalBeanFactory;
 import com.example.myspringbeans.factory.ListableBeanFactory;
-import org.springframework.core.env.EnvironmentCapable;
-import org.springframework.core.io.ResourceLoader;
+import com.myspringcore.core.env.EnvironmentCapable;
+import com.myspringcore.core.io.ResourceLoader;
 import org.springframework.lang.Nullable;
 
 /**

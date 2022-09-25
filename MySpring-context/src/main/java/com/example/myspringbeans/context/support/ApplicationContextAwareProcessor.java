@@ -1,10 +1,9 @@
-package org.springframework.context.support;
+package com.myspringcore.context.support;
 
 import com.example.myspringbeans.config.BeanPostProcessor;
 import com.example.myspringbeans.config.EmbeddedValueResolver;
-import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.weaving.ApplicationContext;
-import org.springframework.util.StringValueResolver;
+import com.myspringcore.context.ConfigurableApplicationContext;
+import com.myspringcore.util.StringValueResolver;
 
 /**
  * @author julu
@@ -12,7 +11,7 @@ import org.springframework.util.StringValueResolver;
  */
 public class ApplicationContextAwareProcessor implements BeanPostProcessor {
 
-    private final ConfigurableApplicationContext applicationContext;
+    private final com.myspringcore.context.ConfigurableApplicationContext applicationContext;
 
     private final StringValueResolver embeddedValueResolver;
 

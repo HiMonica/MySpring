@@ -1,4 +1,4 @@
-package org.springframework.context;
+package com.myspringcore.context;
 
 import java.util.EventObject;
 

@@ -1,24 +1,23 @@
-package org.springframework.context.support;
+package com.myspringcore.context.support;
 
+import com.apache.commons.logging.Log;
 import com.example.myspringbeans.BeansException;
 import com.example.myspringbeans.config.ConfigurableListableBeanFactory;
 import com.example.myspringbeans.factory.BeanFactory;
 import com.example.myspringbeans.factory.config.BeanFactoryPostProcessor;
 import com.example.myspringbeans.support.ResourceEditorRegistrar;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.springframework.context.ApplicationEvent;
-import org.springframework.context.ApplicationListener;
-import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.EnvironmentAware;
-import org.springframework.context.expression.StandardBeanExpressionResolver;
-import org.springframework.context.weaving.ApplicationContext;
+import com.myspringcore.context.ApplicationEvent;
+import com.myspringcore.context.ApplicationListener;
+import com.myspringcore.context.ConfigurableApplicationContext;
+import com.myspringcore.context.EnvironmentAware;
+import com.myspringcore.context.expression.StandardBeanExpressionResolver;
+import com.myspringcore.context.weaving.ApplicationContext;
+import com.myspringcore.core.io.DefaultResourceLoader;
+import com.myspringcore.core.io.support.PathMatchingResourcePatternResolver;
+import com.myspringcore.core.io.support.ResourcePatternResolver;
+import com.apache.commons.logging.LogFactory;
 import org.springframework.core.env.ConfigurableEnvironment;
-import org.springframework.core.env.Environment;
 import org.springframework.core.env.StandardEnvironment;
-import org.springframework.core.io.DefaultResourceLoader;
-import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
-import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.lang.Nullable;
 import org.springframework.util.ObjectUtils;
 
@@ -29,7 +28,7 @@ import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public abstract class AbstractApplicationContext extends DefaultResourceLoader
-        implements ConfigurableApplicationContext {
+        implements com.myspringcore.context.ConfigurableApplicationContext {
 
     /**
      * 刷新和销毁的同步监视器
@@ -60,7 +59,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
     /**
      * 指定监听器
      */
-    private final Set<ApplicationListener<?>> applicationListeners = new LinkedHashSet<>();
+    private final Set<com.myspringcore.context.ApplicationListener<?>> applicationListeners = new LinkedHashSet<>();
 
     /**
      * 本地监听器，需要在初始化的时候refresh
@@ -74,7 +73,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
     private String id = ObjectUtils.identityToString(this);
 
     @Nullable
-    private ResourcePatternResolver resourcePatternResolver;
+    private com.myspringcore.core.io.support.ResourcePatternResolver resourcePatternResolver;
 
     @Nullable
     private ApplicationContext parent;
@@ -194,7 +193,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 
 
         //这一步中，给beanFactory注册了个beanPostProcessor，后处理器的类型是 ApplicationContextAwareProcessor
-        beanFactory.addBeanPostProcessor(new ApplicationContextAwareProcessor(this));
+        beanFactory.addBeanPostProcessor(new com.myspringcore.context.support.ApplicationContextAwareProcessor(this));
         beanFactory.ignoreDependencyInterface(EnvironmentAware.class);
         // TODO: 2022/9/18 有些需要装载的类先后面用到再装载
 //        beanFactory.ignoreDependencyInterface();
@@ -253,7 +252,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 
     @Nullable
     protected BeanFactory getInternalParentBeanFactory(){
-        return (getParent() instanceof ConfigurableApplicationContext ?
+        return (getParent() instanceof com.myspringcore.context.ConfigurableApplicationContext ?
                 ((ConfigurableApplicationContext) getParent()).getBeanFactory() : getParent());
     }
 

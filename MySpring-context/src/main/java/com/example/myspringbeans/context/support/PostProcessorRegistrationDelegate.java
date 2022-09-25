@@ -1,4 +1,4 @@
-package org.springframework.context.support;
+package com.myspringcore.context.support;
 
 import com.example.myspringbeans.config.ConfigurableListableBeanFactory;
 import com.example.myspringbeans.factory.config.BeanFactoryPostProcessor;
@@ -25,6 +25,6 @@ final class PostProcessorRegistrationDelegate {
         //1、调用BeanDefinitionRegistryPostProcessors，if存在
         Set<String> processedBeans = new HashSet<>();
         //beanFactory 默认使用的是DefaultListableBeanFactory，属于BeanDefinitionRegistry
-        
+
     }
 }
