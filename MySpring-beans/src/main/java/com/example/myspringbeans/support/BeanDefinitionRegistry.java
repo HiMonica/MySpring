@@ -43,7 +43,7 @@ public interface BeanDefinitionRegistry extends AliasRegistry {
      * @param beanName
      * @return
      */
-    Boolean containsBeanDefinition(String beanName);
+    boolean containsBeanDefinition(String beanName);
 
     /**
      * 返回此注册表中所有定义的bean名称

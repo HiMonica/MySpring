@@ -7,26 +7,59 @@ import com.example.myspringbeans.config.BeanExpressionResolver;
 import com.example.myspringbeans.config.ConfigurableListableBeanFactory;
 import com.example.myspringbeans.config.Scope;
 import com.example.myspringbeans.factory.BeanFactory;
+import com.example.myspringbeans.factory.config.BeanDefinition;
+import org.springframework.beans.factory.BeanDefinitionStoreException;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.core.ResolvableType;
 import com.myspringcore.core.convert.ConversionService;
 import org.springframework.lang.Nullable;
 import com.myspringcore.util.StringValueResolver;
+import org.springframework.util.ClassUtils;
 
 import java.beans.PropertyEditor;
 import java.io.Serializable;
 import java.lang.annotation.Annotation;
 import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;
+import java.util.Comparator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
+ * beanFactory初始化默认的实现类，是一个成熟的实现类
+ * 基于bean定义元数据，可通过后处理器扩展
+ *
  * @author julu
  * @date 2022/9/11 09:45
  */
 public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFactory
-        implements ConfigurableListableBeanFactory, Serializable {
+        implements ConfigurableListableBeanFactory, BeanDefinitionRegistry, Serializable {
+
+    @Nullable
+    private static Class<?> javaInjectProviderClass;
+
+    static {
+        try {
+            javaInjectProviderClass =
+                    ClassUtils.forName("javax.inject.Provider", DefaultListableBeanFactory.class.getClassLoader());
+        }
+        catch (ClassNotFoundException ex){
+            // JSR-330 API不可用-提供者接口不支持。
+            javaInjectProviderClass = null;
+        }
+    }
+
+    /**
+     * 从序列化id映射到工厂实例
+     */
+    private static final Map<String, Reference<DefaultListableBeanFactory>> serializableFactories =
+            new ConcurrentHashMap<>(8);
+
+    /**
+     * 此工厂的可选id，用于序列化目的
+     */
+    @Nullable
+    private String serializationId;
 
     /**
      * 是否允许重新注册具有相同名称的不同定义
@@ -39,10 +72,12 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
     private Boolean allowCircularReferences = true;
 
     /**
-     * serializationId映射到工厂实例中
+     * 可选的OrderComparator用于依赖列表和数组
      */
-    private static final Map<String, Reference<DefaultListableBeanFactory>> serializableFactories =
-            new ConcurrentHashMap<>(8);
+    @Nullable
+    private Comparator<Object> dependencyComparator;
+
+
 
     public DefaultListableBeanFactory() {
         super();
@@ -51,9 +86,6 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
     public DefaultListableBeanFactory(@Nullable BeanFactory parentBeanFactory) {
         super(parentBeanFactory);
     }
-
-    @Nullable
-    private String serializationId;
 
     public void setSerializationId(@Nullable String serializationId){
         if (serializationId != null){
@@ -150,6 +182,21 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
     }
 
     @Override
+    public void registerBeanDefinition(String beanName, BeanDefinition beanDefinition) throws BeanDefinitionStoreException {
+
+    }
+
+    @Override
+    public void removeBeanDefinition(String beanName) throws NoSuchBeanDefinitionException {
+
+    }
+
+    @Override
+    public BeanDefinition getBeanDefinition(String beanName) throws NoSuchBeanDefinitionException {
+        return null;
+    }
+
+    @Override
     public boolean containsBeanDefinition(String beanName) {
         return false;
     }
@@ -162,6 +209,16 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
     @Override
     public String[] getBeanDefinitionNames() {
         return new String[0];
+    }
+
+    @Override
+    public int getBeanDefinitionCont() {
+        return 0;
+    }
+
+    @Override
+    public boolean isBeanNameInUse(String beanName) {
+        return false;
     }
 
     @Override
@@ -246,6 +303,6 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 
     @Override
     public void registerSingleton(String beanName, Object singletonObject) {
-
+        super.registerSingleton(beanName, singletonObject);
     }
 }
