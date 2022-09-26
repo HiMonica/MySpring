@@ -136,12 +136,14 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 
             try {
                 //bean工厂进行后置处理
+                // TODO: 2022/9/26 可以自定义一个试试
                 postProcessBeanFactory(beanFactory);
 
                 //注册并执行beanFactoryPostProcessor
                 invokeBeanFactoryPostProcessors(beanFactory);
 
                 //注册beanPostProcessor 主体是bean，这一步中没有执行，至于注册动作
+                registerBeanPostProcessors(beanFactory);
 
                 //初始化消息资源
 
@@ -306,17 +308,28 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
         return this.id;
     }
 
+    /**
+     * beanFactory后置处理，这里可以扩展，继承AbstractApplicationContext实现这个方法
+     * @param beanFactory
+     */
     protected void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory){
 
     }
 
     /**
-     * 实例化并调用所有注册的BeanFactoryPostProcessor,给初明确的顺序
+     * 实例化并调用所有注册的BeanFactoryPostProcessor,给出明确的顺序,必须在单例实例化之前调用
      * @param beanFactory
      */
     protected void invokeBeanFactoryPostProcessors(ConfigurableListableBeanFactory beanFactory){
-        // getBeanFactoryPostProcessors();
+        // getBeanFactoryPostProcessors(); 获取当前应用上下文 beanFactoryPostProcessors变量
+        // invokeBeanFactoryPostProcessors(); 实例化并调用所有已注册 BeanFactoryPostProcessor后处理器
         PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(beanFactory, getBeanFactoryPostProcessors());
+
+        //如果存在LOAD_TIME_WEAVER_BEAN_NAME，则加入对应的工厂钩子，并且加入一个自定义的ClassLoader
+        if (beanFactory.getTempClassLoader() == null && beanFactory.containsBean(LOAD_TIME_WEAVER_BEAN_NAME)){
+//            beanFactory.addBeanPostProcessor();
+//            beanFactory.setTempClassLoader(new );
+        }
     }
 
     /**

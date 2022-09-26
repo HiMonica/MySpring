@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4be11a18-de06-4012-b9cb-87af949cc4e2" name="Changes" comment="beanFactory最初的单例实例放入缓存中">
+    <list default="true" id="4be11a18-de06-4012-b9cb-87af949cc4e2" name="Changes" comment="beanFactory">
+      <change afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/support/BeanDefinitionRegistryPostProcessor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/factory/ListableBeanFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/factory/ListableBeanFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/factory/config/BeanDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/factory/config/BeanDefinition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/support/DefaultSingletonBeanRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/support/DefaultSingletonBeanRegistry.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/support/AbstractApplicationContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/support/AbstractApplicationContext.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/support/PostProcessorRegistrationDelegate.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/support/PostProcessorRegistrationDelegate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-jcl/src/main/java/com/apache/commons/logging/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-jcl/src/main/java/com/apache/commons/logging/Log.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +132,8 @@
       <workItem from="1662970205989" duration="3957000" />
       <workItem from="1663082684157" duration="25259000" />
       <workItem from="1664000003553" duration="9000" />
-      <workItem from="1664069268652" duration="21799000" />
+      <workItem from="1664069268652" duration="24235000" />
+      <workItem from="1664203969544" duration="1523000" />
     </task>
     <task id="LOCAL-00001" summary="类注册到beanFactory">
       <created>1662864131530</created>
@@ -268,7 +268,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664099738952</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="beanFactory">
+      <created>1664110923793</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1664110923793</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,7 +309,8 @@
     <MESSAGE value="beanFactory注册实例化默认对象最顶层的类" />
     <MESSAGE value="SystemProperties空指针异常fix" />
     <MESSAGE value="beanFactory最初的单例实例放入缓存中" />
-    <option name="LAST_COMMIT_MESSAGE" value="beanFactory最初的单例实例放入缓存中" />
+    <MESSAGE value="beanFactory" />
+    <option name="LAST_COMMIT_MESSAGE" value="beanFactory" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

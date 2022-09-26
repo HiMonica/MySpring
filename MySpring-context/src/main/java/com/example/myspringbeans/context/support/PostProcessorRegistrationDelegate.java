@@ -6,8 +6,11 @@ import com.example.myspringbeans.config.BeanPostProcessor;
 import com.example.myspringbeans.config.ConfigurableListableBeanFactory;
 import com.example.myspringbeans.factory.config.BeanDefinition;
 import com.example.myspringbeans.factory.config.BeanFactoryPostProcessor;
+import com.example.myspringbeans.support.BeanDefinitionRegistry;
+import com.example.myspringbeans.support.BeanDefinitionRegistryPostProcessor;
 import org.springframework.lang.Nullable;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -24,12 +27,35 @@ final class PostProcessorRegistrationDelegate {
 
     }
 
+    /**
+     *
+     *
+     * @param beanFactory
+     * @param beanFactoryPostProcessors
+     */
     public static void invokeBeanFactoryPostProcessors(
             ConfigurableListableBeanFactory beanFactory, List<BeanFactoryPostProcessor> beanFactoryPostProcessors){
 
         //1、调用BeanDefinitionRegistryPostProcessors，if存在
         Set<String> processedBeans = new HashSet<>();
         //beanFactory 默认使用的是DefaultListableBeanFactory，属于BeanDefinitionRegistry
+        if (beanFactory instanceof BeanDefinitionRegistry){
+            BeanDefinitionRegistry registry = (BeanDefinitionRegistry) beanFactory;
+            //两个后置处理器列表
+            List<BeanFactoryPostProcessor> regularPostProcessors = new ArrayList<>();
+            List<BeanDefinitionRegistryPostProcessor> registryProcessors = new ArrayList<>();
+
+            for (BeanFactoryPostProcessor postProcessor : beanFactoryPostProcessors) {
+                if (postProcessor instanceof BeanDefinitionRegistryPostProcessor){
+                    BeanDefinitionRegistryPostProcessor registryProcessor =
+                            (BeanDefinitionRegistryPostProcessor) postProcessor;
+                    registryProcessor.postProcessBeanDefinitionRegistry(registry);
+                    registryProcessors.add(registryProcessor);
+                }else {
+                    regularPostProcessors.add(postProcessor);
+                }
+            }
+        }
 
     }
 

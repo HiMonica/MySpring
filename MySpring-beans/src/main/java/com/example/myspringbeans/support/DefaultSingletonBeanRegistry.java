@@ -1,6 +1,5 @@
 package com.example.myspringbeans.support;
 
-import com.example.myspringbeans.BeansException;
 import com.example.myspringbeans.config.SingletonBeanRegistry;
 import com.example.myspringbeans.factory.ObjectFactory;
 import com.myspringcore.core.SimpleAliasRegistry;
@@ -89,6 +88,7 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
         Assert.notNull(beanName, "Bean name must not be null");
         Assert.notNull(singletonObject, "Singleton object must not be null");
         //因为要对单例缓存加锁呢？因为要对singletonObjects进行判空校验
+        //加锁的原因是因为在addSingleton的时候，另一个线程来判空也成功
         synchronized (this.singletonObjects){
             Object oldObject = this.singletonObjects.get(beanName);
             if (oldObject != null){
