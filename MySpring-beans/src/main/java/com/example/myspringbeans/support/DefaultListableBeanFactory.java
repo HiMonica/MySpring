@@ -286,6 +286,11 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 
     }
 
+    @Nullable
+    public Comparator<Object> getDependencyComparator(){
+        return this.dependencyComparator;
+    }
+
     @Override
     public void freezeConfiguration() {
 

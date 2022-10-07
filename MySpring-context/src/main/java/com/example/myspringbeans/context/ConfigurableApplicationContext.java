@@ -3,8 +3,8 @@ package com.example.myspringbeans.context;
 import com.example.myspringbeans.BeansException;
 import com.example.myspringbeans.config.ConfigurableListableBeanFactory;
 import com.example.myspringbeans.context.weaving.ApplicationContext;
+import com.example.myspringbeans.factory.config.BeanFactoryPostProcessor;
 import com.myspringcore.core.env.ConfigurableEnvironment;
-import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 
 
 import org.springframework.lang.Nullable;

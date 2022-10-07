@@ -5,6 +5,7 @@ import com.example.myspringbeans.context.ApplicationListener;
 import com.example.myspringbeans.context.ConfigurableApplicationContext;
 import com.example.myspringbeans.context.weaving.ApplicationContext;
 import com.example.myspringbeans.factory.BeanFactory;
+import com.example.myspringbeans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
@@ -168,6 +169,11 @@ public class ClassPathXmlApplicationContext extends AbstractXmlApplicationContex
     }
 
     @Override
+    public BeanDefinition getBeanDefinition(String beanName) throws NoSuchBeanDefinitionException {
+        return null;
+    }
+
+    @Override
     public void setId(String id) {
 
     }
@@ -179,11 +185,6 @@ public class ClassPathXmlApplicationContext extends AbstractXmlApplicationContex
 
     @Override
     public void setEnvironment(ConfigurableApplicationContext environment) {
-
-    }
-
-    @Override
-    public void addBeanFactoryPostProcessor(BeanFactoryPostProcessor beanFactory) throws BeansException {
 
     }
 

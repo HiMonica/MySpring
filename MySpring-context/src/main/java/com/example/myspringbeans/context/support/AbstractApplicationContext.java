@@ -20,6 +20,7 @@ import com.myspringcore.core.io.ResourceLoader;
 import com.myspringcore.core.io.support.PathMatchingResourcePatternResolver;
 import com.myspringcore.core.io.support.ResourcePatternResolver;
 import org.springframework.lang.Nullable;
+import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 
 import java.util.ArrayList;
@@ -100,7 +101,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
     String SYSTEM_ENVIRONMENT_BEAN_NAME = "systemEnvironment";
 
     /**
-     * 要在刷新是应用的BeanFactoryPostProcessors
+     * 要在刷新是应用的BeanFactoryPostProcessors，默认这个后置处理器size = 0，后置处理器是用来扩展用的
      */
     private final List<BeanFactoryPostProcessor> beanFactoryPostProcessors = new ArrayList<>();
 
@@ -330,6 +331,12 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 //            beanFactory.addBeanPostProcessor();
 //            beanFactory.setTempClassLoader(new );
         }
+    }
+
+    @Override
+    public void addBeanFactoryPostProcessor(BeanFactoryPostProcessor postProcessor) throws BeansException {
+        Assert.notNull(postProcessor, "BeanFactoryPostProcessor must not be null");
+        this.beanFactoryPostProcessors.add(postProcessor);
     }
 
     /**

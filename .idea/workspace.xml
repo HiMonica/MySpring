@@ -4,11 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4be11a18-de06-4012-b9cb-87af949cc4e2" name="Changes" comment="beanFactory">
-      <change afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/support/BeanDefinitionRegistryPostProcessor.java" afterDir="false" />
+    <list default="true" id="4be11a18-de06-4012-b9cb-87af949cc4e2" name="Changes" comment="后置处理器的处理委托">
+      <change afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/BeanMetadataElement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/config/BeanDefinitionHolder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/annotation/ConfigurationClassPostProcessor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/OrderComparator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/Ordered.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/PriorityOrdered.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/support/DefaultSingletonBeanRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/support/DefaultSingletonBeanRegistry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/factory/config/BeanDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/factory/config/BeanDefinition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/support/DefaultListableBeanFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/support/DefaultListableBeanFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/ConfigurableApplicationContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/ConfigurableApplicationContext.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/support/AbstractApplicationContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/support/AbstractApplicationContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/support/ClassPathXmlApplicationContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/support/ClassPathXmlApplicationContext.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/support/PostProcessorRegistrationDelegate.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/support/PostProcessorRegistrationDelegate.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,8 +28,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -133,7 +141,7 @@
       <workItem from="1663082684157" duration="25259000" />
       <workItem from="1664000003553" duration="9000" />
       <workItem from="1664069268652" duration="24235000" />
-      <workItem from="1664203969544" duration="1523000" />
+      <workItem from="1664203969544" duration="10463000" />
     </task>
     <task id="LOCAL-00001" summary="类注册到beanFactory">
       <created>1662864131530</created>
@@ -275,7 +283,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664110923793</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="后置处理器的处理委托">
+      <created>1664205545267</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1664205545268</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -310,7 +325,8 @@
     <MESSAGE value="SystemProperties空指针异常fix" />
     <MESSAGE value="beanFactory最初的单例实例放入缓存中" />
     <MESSAGE value="beanFactory" />
-    <option name="LAST_COMMIT_MESSAGE" value="beanFactory" />
+    <MESSAGE value="后置处理器的处理委托" />
+    <option name="LAST_COMMIT_MESSAGE" value="后置处理器的处理委托" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

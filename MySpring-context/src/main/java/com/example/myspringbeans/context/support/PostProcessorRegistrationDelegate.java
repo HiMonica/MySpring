@@ -8,12 +8,13 @@ import com.example.myspringbeans.factory.config.BeanDefinition;
 import com.example.myspringbeans.factory.config.BeanFactoryPostProcessor;
 import com.example.myspringbeans.support.BeanDefinitionRegistry;
 import com.example.myspringbeans.support.BeanDefinitionRegistryPostProcessor;
+import com.example.myspringbeans.support.DefaultListableBeanFactory;
+import com.myspringcore.core.OrderComparator;
+import com.myspringcore.core.Ordered;
+import com.myspringcore.core.PriorityOrdered;
 import org.springframework.lang.Nullable;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * AbstractApplicationContext的后处理器处理的委托
@@ -55,8 +56,60 @@ final class PostProcessorRegistrationDelegate {
                     regularPostProcessors.add(postProcessor);
                 }
             }
+            List<BeanDefinitionRegistryPostProcessor> currentRegistryProcessors = new ArrayList<>();
+
+            String[] postProcessorNames =
+                    beanFactory.getBeanNamesForType(BeanDefinitionRegistryPostProcessor.class, true, true);
+            for (String postProcessorName : postProcessorNames) {
+                if (beanFactory.isTypeMatch(postProcessorName, PriorityOrdered.class)){
+                    currentRegistryProcessors.add(beanFactory.getBean(postProcessorName, BeanDefinitionRegistryPostProcessor.class));
+                    processedBeans.add(postProcessorName);
+                }
+            }
+            //对后置处理器进行排序
+            // TODO: 2022/10/7 为什么要排序呢？
+            sortPostProcessors(currentRegistryProcessors, beanFactory);
+            registryProcessors.addAll(currentRegistryProcessors);
+            //根据顺序执行所有后置处理器
+            invokeBeanDefinitionRegistryPostProcessors(currentRegistryProcessors, registry);
+            currentRegistryProcessors.clear();
+
+            //接下来，调用实现Ordered的BeanDefinitionRegistryPostProcessors
+            postProcessorNames = beanFactory.getBeanNamesForType(BeanDefinitionRegistryPostProcessor.class, true, false);
+            for (String ppName : postProcessorNames) {
+                if (!processedBeans.contains(ppName) && beanFactory.isTypeMatch(ppName, Ordered.class)){
+                    currentRegistryProcessors.add(beanFactory.getBean(ppName, BeanDefinitionRegistryPostProcessor.class));
+                    processedBeans.add(ppName);
+                }
+            }
         }
 
+
+    }
+
+    /**
+     * 调用给定的BeanDefinitionRegistryPostProcessor beans
+     *
+     * @param postProcessors
+     * @param registry
+     */
+    private static void invokeBeanDefinitionRegistryPostProcessors(
+            Collection<? extends BeanDefinitionRegistryPostProcessor> postProcessors, BeanDefinitionRegistry registry){
+
+        for (BeanDefinitionRegistryPostProcessor postProcessor : postProcessors) {
+            postProcessor.postProcessBeanDefinitionRegistry(registry);
+        }
+    }
+
+    private static void sortPostProcessors(List<BeanDefinitionRegistryPostProcessor> postProcessors, ConfigurableListableBeanFactory beanFactory) {
+        Comparator<Object> comparatorToUse = null;
+        if (beanFactory instanceof DefaultListableBeanFactory){
+            comparatorToUse = ((DefaultListableBeanFactory) beanFactory).getDependencyComparator();
+        }
+        if (comparatorToUse == null){
+            comparatorToUse = OrderComparator.INSTANCE;
+        }
+        postProcessors.sort(comparatorToUse);
     }
 
     public static void registerBeanPostProcessors(
