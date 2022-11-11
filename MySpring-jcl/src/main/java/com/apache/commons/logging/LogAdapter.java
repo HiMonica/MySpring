@@ -124,6 +124,16 @@ final class LogAdapter {
         public void debug(Object message) {
 
         }
+
+        @Override
+        public void info(Object message) {
+
+        }
+
+        @Override
+        public boolean isInfoEnabled() {
+            return false;
+        }
     }
 
     private static class Slf4jAdapter{
@@ -185,6 +195,16 @@ final class LogAdapter {
         public void debug(Object message) {
 
         }
+
+        @Override
+        public boolean isInfoEnabled() {
+            return false;
+        }
+
+        @Override
+        public void info(Object message) {
+
+        }
     }
 
     private static class JavaUtilLog implements Log, Serializable{
@@ -215,6 +235,16 @@ final class LogAdapter {
 
         @Override
         public void debug(Object message) {
+
+        }
+
+        @Override
+        public boolean isInfoEnabled() {
+            return false;
+        }
+
+        @Override
+        public void info(Object message) {
 
         }
     }

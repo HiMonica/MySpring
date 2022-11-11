@@ -12,6 +12,7 @@ import com.example.myspringbeans.support.DefaultListableBeanFactory;
 import com.myspringcore.core.OrderComparator;
 import com.myspringcore.core.Ordered;
 import com.myspringcore.core.PriorityOrdered;
+import org.springframework.beans.factory.support.MergedBeanDefinitionPostProcessor;
 import org.springframework.lang.Nullable;
 
 import java.util.*;
@@ -101,7 +102,7 @@ final class PostProcessorRegistrationDelegate {
         }
     }
 
-    private static void sortPostProcessors(List<BeanDefinitionRegistryPostProcessor> postProcessors, ConfigurableListableBeanFactory beanFactory) {
+    private static void sortPostProcessors(List<?> postProcessors, ConfigurableListableBeanFactory beanFactory) {
         Comparator<Object> comparatorToUse = null;
         if (beanFactory instanceof DefaultListableBeanFactory){
             comparatorToUse = ((DefaultListableBeanFactory) beanFactory).getDependencyComparator();
@@ -120,8 +121,62 @@ final class PostProcessorRegistrationDelegate {
         // 注册记录信息消息的BeanPostProcessorChecker
         // 在BeanPostProcessor实例化期间创建bean，即当
         // 一个bean没有资格被所有的beanPostProcessor处理。
+        // TODO: 2022/11/11 什么意思？
         int beanProcessorTargetCount = beanFactory.getBeanPostProcessorCount() + 1 + postProcessorNames.length;
+        beanFactory.addBeanPostProcessor(new BeanPostProcessorChecker(beanFactory, beanProcessorTargetCount));
 
+        //将带有 权限顺序、顺序和其余的 beanPostProcessor 分开
+        List<BeanPostProcessor> priorityOrderedPostProcessors = new ArrayList<>();
+        //类型是 MergedBeanDefinitionPostProcessor
+        List<BeanPostProcessor> internalPostProcessors = new ArrayList<>();
+        List<String> orderedPostProcessorNames = new ArrayList<>();
+        List<String> nonOrderedPostProcessorNames = new ArrayList<>();
+        for (String ppName : postProcessorNames) {
+            if (beanFactory.isTypeMatch(ppName, PriorityOrdered.class)){
+                BeanPostProcessor pp = beanFactory.getBean(ppName, BeanPostProcessor.class);
+                priorityOrderedPostProcessors.add(pp);
+                if (pp instanceof MergedBeanDefinitionPostProcessor){
+                    internalPostProcessors.add(pp);
+                }
+            }
+            else if (beanFactory.isTypeMatch(ppName, Ordered.class)){
+                orderedPostProcessorNames.add(ppName);
+            }
+            else {
+                nonOrderedPostProcessorNames.add(ppName);
+            }
+        }
+
+        //首先，注册实现了 PriorityOrdered接口的bean后处理器
+        sortPostProcessors(priorityOrderedPostProcessors, beanFactory);
+        registerBeanPostProcessors(beanFactory, internalPostProcessors);
+
+        //现在，注册常规bena后置处理器，其实就是不带顺序
+        List<BeanPostProcessor> nonOrderedPostProcessors = new ArrayList<>(nonOrderedPostProcessorNames.size());
+        for (String ppName : nonOrderedPostProcessorNames) {
+            BeanPostProcessor pp = beanFactory.getBean(ppName, BeanPostProcessor.class);
+            nonOrderedPostProcessors.add(pp);
+            if (pp instanceof  MergedBeanDefinitionPostProcessor){
+                internalPostProcessors.add(pp);
+            }
+        }
+        registerBeanPostProcessors(beanFactory, nonOrderedPostProcessors);
+
+        //最后，重新注册MergedBeanDefinitionPostProcessor 类型的后处理器
+        //看起来是重复注册，但是每次注册调用的底层方法都是会先移除已存在的 beanPostProcessor，然后再加进来，最后还是保存唯一
+        sortPostProcessors(internalPostProcessors, beanFactory);
+        registerBeanPostProcessors(beanFactory, internalPostProcessors);
+
+        //添加 ApplicationContext 探测器
+        // TODO: 2022/11/11 这里还有个方法没写
+    }
+
+    private static void registerBeanPostProcessors(
+            ConfigurableListableBeanFactory beanFactory, List<BeanPostProcessor> postProcessors){
+
+        for (BeanPostProcessor postProcessor : postProcessors) {
+            beanFactory.addBeanPostProcessor(postProcessor);
+        }
     }
 
     /**

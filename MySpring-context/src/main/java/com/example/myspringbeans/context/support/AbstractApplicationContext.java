@@ -132,11 +132,11 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
             //类注册到bean factory
             ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory();
 
-            //bean工厂准备工作：主要是将一些必要的东西注册进去
+            //bean工厂准备工作：主要是注入一些内置对象和依赖对象
             prepareBeanFactory(beanFactory);
 
             try {
-                //bean工厂进行后置处理
+                //这个是bean工厂的后置处理，bean工厂进行后置处理
                 // TODO: 2022/9/26 可以自定义一个试试
                 postProcessBeanFactory(beanFactory);
 
@@ -354,5 +354,11 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
      */
     protected void registerBeanPostProcessors(ConfigurableListableBeanFactory beanFactory){
         PostProcessorRegistrationDelegate.registerBeanPostProcessors(beanFactory, this);
+    }
+
+    @Override
+    public Object getBean(String name) throws BeansException {
+
+        return null;
     }
 }
