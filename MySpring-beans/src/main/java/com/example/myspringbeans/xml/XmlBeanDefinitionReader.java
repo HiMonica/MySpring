@@ -59,4 +59,8 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
     public Environment getEnvironment() {
         return null;
     }
+
+    public void setValidating(boolean validating){
+
+    }
 }

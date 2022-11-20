@@ -16,6 +16,9 @@ import java.io.IOException;
 public abstract class AbstractRefreshableApplicationContext extends AbstractApplicationContext {
 
     @Nullable
+    private String[] configLocations;
+
+    @Nullable
     private Boolean allowBeanDefinitionOverriding;
 
     @Nullable
@@ -96,6 +99,16 @@ public abstract class AbstractRefreshableApplicationContext extends AbstractAppl
 
     protected DefaultListableBeanFactory createBeanFactory(){
         return new DefaultListableBeanFactory(getInternalParentBeanFactory());
+    }
+
+    @Nullable
+    protected String[] getConfigLocations(){
+        return (this.configLocations != null ? this.configLocations : getDefaultConfigLocations());
+    }
+
+    @Nullable
+    protected String[] getDefaultConfigLocations(){
+        return null;
     }
 
     protected void customizeBeanFactory(DefaultListableBeanFactory beanFactory){
