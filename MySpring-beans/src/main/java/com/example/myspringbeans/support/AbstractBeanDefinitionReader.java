@@ -5,11 +5,15 @@ import com.example.myspringbeans.xml.ResourceEntityResolver;
 import com.myspringcore.core.env.Environment;
 import com.myspringcore.core.env.EnvironmentCapable;
 import com.myspringcore.core.env.StandardEnvironment;
+import com.myspringcore.core.io.Resource;
 import com.myspringcore.core.io.ResourceLoader;
 import com.myspringcore.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.beans.factory.BeanDefinitionStoreException;
 import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 import org.xml.sax.EntityResolver;
+
+import java.util.Set;
 
 /**
  * @author julu
@@ -87,5 +91,29 @@ public abstract class AbstractBeanDefinitionReader implements BeanDefinitionRead
             }
         }
         return this.entityResolver;
+    }
+
+    /**
+     * 最终底层的资源解析方法
+     * 其实就是从指定的路径下解析bean信息
+     *
+     * @param location
+     * @param actualResources
+     * @return
+     * @throws BeanDefinitionStoreException
+     */
+    public int loadBeanDefinitions(String location, @Nullable Set<Resource> actualResources) throws BeanDefinitionStoreException{
+        ResourceLoader resourceLoader = getResourceLoader();
+        if (resourceLoader == null){
+            throw new BeanDefinitionStoreException(
+                    "Cannot load bean definitions from location [" + location + "]: no ResourceLoader available");
+        }
+
+        if (resourceLoader instanceof ResourceEntityResolver){
+
+            //获取资源文件（资源加载器从路径识别资源文件）
+
+        }
+        return 0;
     }
 }

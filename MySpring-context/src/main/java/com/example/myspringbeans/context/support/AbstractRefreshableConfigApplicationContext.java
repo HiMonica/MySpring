@@ -6,47 +6,57 @@ import com.example.myspringbeans.context.ConfigurableApplicationContext;
 import com.example.myspringbeans.context.weaving.ApplicationContext;
 import com.example.myspringbeans.factory.BeanFactory;
 import com.example.myspringbeans.factory.config.BeanDefinition;
+import com.example.myspringbeans.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.beans.factory.ObjectProvider;
-import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.core.ResolvableType;
 import org.springframework.lang.Nullable;
+import org.springframework.util.Assert;
+import org.springframework.util.StringUtils;
 
+import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.util.Map;
 
 /**
  * @author julu
- * @date 2022/9/11 15:18
+ * @date 2022/11/24 22:11
  */
-public class ClassPathXmlApplicationContext extends AbstractXmlApplicationContext {
+public abstract class AbstractRefreshableConfigApplicationContext extends AbstractRefreshableApplicationContext{
 
-    public ClassPathXmlApplicationContext(){
+    @Nullable
+    private String[] configLocations;
+
+    private boolean setIdCalled = false;
+
+    public AbstractRefreshableConfigApplicationContext(){
 
     }
 
-    public ClassPathXmlApplicationContext(ApplicationContext parent){
+    public AbstractRefreshableConfigApplicationContext(@Nullable ApplicationContext parent){
         super(parent);
     }
 
-    public ClassPathXmlApplicationContext(String configLocation) throws BeansException{
-        this(new String[] {configLocation}, true, null);
+    public void setConfigLocations(String location){
+        setConfigLocations(StringUtils.tokenizeToStringArray(location, CONFIG_LOCATION_DELIMITERS));
     }
 
-    public ClassPathXmlApplicationContext(
-            String[] configLocations, boolean refresh, @Nullable ApplicationContext parent)
-            throws BeansException{
-        super(parent);
-        //获取资源文件
-        setConfigLocations(configLocations);
-        if (refresh){
-            refresh();
+    public void setConfigLocations(@Nullable String... locations){
+        if (locations != null){
+            Assert.noNullElements(locations, "Config locations must not be null");
+            // 将配置资源路径放入 configLocations 数组中
+            this.configLocations = new String[locations.length];
+            for (int i = 0; i < locations.length; i++) {
+                this.configLocations[i] = resolvePath(locations[i]).trim();
+            }
+        }
+        else {
+            this.configLocations = null;
         }
     }
 
-    @Override
-    public Object getBean(String name) throws BeansException {
-        return null;
+    private String resolvePath(String path) {
+        return getEnvironment().resolveRequirePlaceholders(path);
     }
 
     @Override

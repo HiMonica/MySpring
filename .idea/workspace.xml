@@ -4,28 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4be11a18-de06-4012-b9cb-87af949cc4e2" name="Changes" comment="bean的创建过程">
-      <change afterPath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/test/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+    <list default="true" id="4be11a18-de06-4012-b9cb-87af949cc4e2" name="Changes" comment="beanDefinition方法结束">
+      <change afterPath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/support/AbstractRefreshableConfigApplicationContext.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/support/AbstractBeanDefinitionReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/support/AbstractBeanDefinitionReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/xml/XmlBeanDefinitionReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/xml/XmlBeanDefinitionReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/support/AbstractApplicationContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/support/AbstractApplicationContext.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/support/AbstractRefreshableApplicationContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/support/AbstractRefreshableApplicationContext.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/support/AbstractXmlApplicationContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/support/AbstractXmlApplicationContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/support/PostProcessorRegistrationDelegate.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/support/PostProcessorRegistrationDelegate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-context/target/classes/com/example/myspringbeans/context/ConfigurableApplicationContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/target/classes/com/example/myspringbeans/context/ConfigurableApplicationContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-context/target/classes/com/example/myspringbeans/context/support/AbstractApplicationContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/target/classes/com/example/myspringbeans/context/support/AbstractApplicationContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-context/target/classes/com/example/myspringbeans/context/support/ClassPathXmlApplicationContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/target/classes/com/example/myspringbeans/context/support/ClassPathXmlApplicationContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/support/ClassPathXmlApplicationContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/support/ClassPathXmlApplicationContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-context/target/classes/com/example/myspringbeans/context/support/AbstractRefreshableApplicationContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/target/classes/com/example/myspringbeans/context/support/AbstractRefreshableApplicationContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-context/target/classes/com/example/myspringbeans/context/support/AbstractXmlApplicationContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/target/classes/com/example/myspringbeans/context/support/AbstractXmlApplicationContext.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MySpring-context/target/classes/com/example/myspringbeans/context/support/PostProcessorRegistrationDelegate.class" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/target/classes/com/example/myspringbeans/context/support/PostProcessorRegistrationDelegate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-jcl/src/main/java/com/apache/commons/logging/LogAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-jcl/src/main/java/com/apache/commons/logging/LogAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-jcl/target/classes/com/apache/commons/logging/Log.class" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-jcl/target/classes/com/apache/commons/logging/Log.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-jcl/target/classes/com/apache/commons/logging/LogAdapter$JavaUtilAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-jcl/target/classes/com/apache/commons/logging/LogAdapter$JavaUtilAdapter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-jcl/target/classes/com/apache/commons/logging/LogAdapter$JavaUtilLog.class" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-jcl/target/classes/com/apache/commons/logging/LogAdapter$JavaUtilLog.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-jcl/target/classes/com/apache/commons/logging/LogAdapter$Log4jLog.class" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-jcl/target/classes/com/apache/commons/logging/LogAdapter$Log4jLog.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-jcl/target/classes/com/apache/commons/logging/LogAdapter$Slf4jAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-jcl/target/classes/com/apache/commons/logging/LogAdapter$Slf4jAdapter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-jcl/target/classes/com/apache/commons/logging/LogAdapter$Slf4jLocationAwareLog.class" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-jcl/target/classes/com/apache/commons/logging/LogAdapter$Slf4jLocationAwareLog.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-jcl/target/classes/com/apache/commons/logging/LogAdapter$Slf4jLog.class" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-jcl/target/classes/com/apache/commons/logging/LogAdapter$Slf4jLog.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/env/PropertyResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/env/PropertyResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/target/classes/com/myspringcore/core/io/support/PathMatchingResourcePatternResolver.class" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/target/classes/com/myspringcore/core/io/support/PathMatchingResourcePatternResolver.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -314,7 +305,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665109131015</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="beanDefinition方法结束">
+      <created>1668954575399</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1668954575399</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -352,37 +350,7 @@
     <MESSAGE value="后置处理器的处理委托" />
     <MESSAGE value="后置处理器的执行过程" />
     <MESSAGE value="bean的创建过程" />
-    <option name="LAST_COMMIT_MESSAGE" value="bean的创建过程" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/MySpring-context/src/main/java/com/myspringcore/context/support/AbstractApplicationContext.java</url>
-          <line>190</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/MySpring-context/src/main/java/com/myspringcore/context/support/AbstractApplicationContext.java</url>
-          <line>111</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/MySpring-context/src/main/java/com/myspringcore/context/support/AbstractApplicationContext.java</url>
-          <line>234</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/MySpring-context/src/main/java/com/myspringcore/context/support/AbstractRefreshableApplicationContext.java</url>
-          <line>71</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/MySpring-context/src/main/java/com/myspringcore/context/support/AbstractRefreshableApplicationContext.java</url>
-          <line>45</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="beanDefinition方法结束" />
+    <option name="LAST_COMMIT_MESSAGE" value="beanDefinition方法结束" />
   </component>
 </project>

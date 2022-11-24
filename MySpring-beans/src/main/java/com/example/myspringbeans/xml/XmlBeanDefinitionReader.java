@@ -7,6 +7,7 @@ import com.myspringcore.core.env.Environment;
 import com.myspringcore.core.io.Resource;
 import com.myspringcore.core.io.ResourceLoader;
 import org.springframework.beans.factory.BeanDefinitionStoreException;
+import org.springframework.util.Assert;
 
 /**
  * xml形式的BeanDefinitionReader
@@ -47,12 +48,17 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 
     @Override
     public int loadBeanDefinitions(String location) throws BeanDefinitionStoreException {
-        return 0;
+        return loadBeanDefinitions(location, null);
     }
 
     @Override
     public int loadBeanDefinitions(String... locations) throws BeanDefinitionStoreException {
-        return 0;
+        Assert.notNull(locations, "Location array must not be null");
+        int count = 0;
+        for (String location : locations) {
+            count += loadBeanDefinitions(location);
+        }
+        return count;
     }
 
     @Override

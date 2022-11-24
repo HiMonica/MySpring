@@ -16,7 +16,7 @@ import java.io.IOException;
  * @author julu
  * @date 2022/9/11 14:37
  */
-public abstract class AbstractXmlApplicationContext extends AbstractRefreshableApplicationContext {
+public abstract class AbstractXmlApplicationContext extends AbstractRefreshableConfigApplicationContext {
 
     private boolean validating = true;
 
@@ -31,16 +31,24 @@ public abstract class AbstractXmlApplicationContext extends AbstractRefreshableA
     @Override
     protected void loadBeanDefinitions(DefaultListableBeanFactory beanFactory) throws BeansException, IOException {
         // Create a new XmlBeanDefinitionReader for the given BeanFactory
+        //创建一个xml文件的阅读器
         XmlBeanDefinitionReader beanDefinitionReader = new XmlBeanDefinitionReader(beanFactory);
 
         //使用此上下文配置bean定义阅读器
+        // TODO: 2022/11/24 目前不知道设置这个来干嘛
+        //1、
         beanDefinitionReader.setEnvironment(this.getEnvironment());
+        //2、设置资源加载器，就是该类
         beanDefinitionReader.setResourceLoader(this);
+        // TODO: 2022/11/24 目前不知道设置这个来干嘛
+        //3、
         beanDefinitionReader.setEntityResolver(new ResourceEntityResolver(this));
 
         // 允许子类提供reader的自定义初始化
         // 然后实际加载bean定义。(空方法，让子类进行扩展实现)
+        //这里就相当于抽出一个方法去专门做reader的初始化
         initBeanDefinitionReader(beanDefinitionReader);
+        //获取资源路径，然后去加载，资源路径在refresh之前就已经set进去了
         loadBeanDefinitions(beanDefinitionReader);
     }
 

@@ -6,4 +6,6 @@ package com.myspringcore.core.env;
 public interface PropertyResolver {
 
     boolean containsProperty(String key);
+
+    String resolveRequirePlaceholders(String text) throws IllegalArgumentException;
 }
