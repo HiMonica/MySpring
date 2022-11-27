@@ -8,6 +8,13 @@ import org.springframework.lang.Nullable;
 /**
  * Bean定义的阅读器
  *
+ * 抽象类
+ * @see com.example.myspringbeans.support.AbstractBeanDefinitionReader
+ *
+ * 具体实现
+ * 1、xml文件形成的解析方式
+ * @see com.example.myspringbeans.xml.XmlBeanDefinitionReader
+ *
  * @author julu
  * @date 2022/11/20 17:38
  */

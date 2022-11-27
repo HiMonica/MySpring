@@ -20,6 +20,12 @@ public abstract class AbstractEnvironment implements ConfigurableEnvironment{
 
     public static final String IGNORE_GETENV_PROPERTY_NAME = "spring.getenv.ignore";
 
+    // TODO: 2022/11/27 具体实现类
+    private PropertySources propertySources;
+
+    private final ConfigurablePropertyResolver propertyResolver =
+            new PropertySourcePropertyResolver(this.propertySources);
+
     @Override
     public Map<String, Object> getSystemProperties() {
         try {
@@ -87,5 +93,10 @@ public abstract class AbstractEnvironment implements ConfigurableEnvironment{
     @Override
     public boolean containsProperty(String key) {
         return false;
+    }
+
+    @Override
+    public String resolveRequirePlaceholders(String text) throws IllegalArgumentException {
+        return this.propertyResolver.resolveRequirePlaceholders(text);
     }
 }

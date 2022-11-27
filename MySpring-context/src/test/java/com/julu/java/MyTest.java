@@ -10,6 +10,6 @@ public class MyTest {
 
 
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(null, true, null);
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("/Users/liuyuyang/Downloads/MySpring/MySpring-context/src/main/resources/MET-INF/ClassPathXmlTest.xml");
     }
 }

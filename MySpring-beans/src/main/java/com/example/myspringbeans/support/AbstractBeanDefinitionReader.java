@@ -8,11 +8,13 @@ import com.myspringcore.core.env.StandardEnvironment;
 import com.myspringcore.core.io.Resource;
 import com.myspringcore.core.io.ResourceLoader;
 import com.myspringcore.core.io.support.PathMatchingResourcePatternResolver;
+import com.myspringcore.core.io.support.ResourcePatternResolver;
 import org.springframework.beans.factory.BeanDefinitionStoreException;
 import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 import org.xml.sax.EntityResolver;
 
+import java.io.IOException;
 import java.util.Set;
 
 /**
@@ -110,10 +112,28 @@ public abstract class AbstractBeanDefinitionReader implements BeanDefinitionRead
         }
 
         if (resourceLoader instanceof ResourceEntityResolver){
+            try {
+                //获取资源文件（资源加载器从路径识别资源文件）
+                Resource[] resources = ((ResourcePatternResolver) resourceLoader).getResources(location);
+                //根据资源文件加载bean
+                int count = loadBeanDefinitions(resources);
 
-            //获取资源文件（资源加载器从路径识别资源文件）
-
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         return 0;
     }
+
+    @Override
+    public int loadBeanDefinitions(Resource... resources) throws BeanDefinitionStoreException {
+        Assert.notNull(resources, "Resource array must not be null");
+        int count = 0;
+        for (Resource resource : resources) {
+            //开始解析加载bean
+            count += loadBeanDefinitions(resource);
+        }
+        return count;
+    }
+
 }

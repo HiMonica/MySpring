@@ -5,6 +5,8 @@ import com.myspringcore.core.io.Resource;
 import com.myspringcore.core.io.ResourceLoader;
 import org.springframework.util.Assert;
 
+import java.io.IOException;
+
 /**
  * @author julu
  * @date 2022/9/11 14:55
@@ -30,5 +32,10 @@ public class PathMatchingResourcePatternResolver implements ResourcePatternResol
     @Override
     public ClassLoader getClassLoader() {
         return null;
+    }
+
+    @Override
+    public Resource[] getResources(String location) throws IOException {
+        return new Resource[0];
     }
 }
