@@ -4,34 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4be11a18-de06-4012-b9cb-87af949cc4e2" name="Changes" comment="写到xml文件的bean加载，具体加载方法还没写完">
-      <change afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/factory/parsing/ReaderContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/xml/BeanDefinitionDocumentReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/xml/DefaultBeanDefinitionDocumentReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/xml/DefaultDocumentLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/xml/DocumentLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/xml/XmlReaderContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MySpring-context/src/main/resources/MET-INF/ClassPathXmlTest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/env/AbstractPropertyResolver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/env/PropertySourcePropertyResolver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/env/PropertySources.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/io/NamedThreadLocal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/io/support/EncodedResource.java" afterDir="false" />
+    <list default="true" id="4be11a18-de06-4012-b9cb-87af949cc4e2" name="Changes" comment="xml变成doc文件，下一步就是将doc文件解析成beanDefinition">
+      <change afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/factory/parsing/DefaultsDefinition.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/factory/parsing/ReaderEventListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/factory/parsing/SourceExtractor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/xml/BeanDefinitionParserDelegate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/xml/DocumentDefaultsDefinition.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/factory/parsing/ReaderContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/factory/parsing/ReaderContext.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/support/AbstractBeanDefinitionReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/support/AbstractBeanDefinitionReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/support/BeanDefinitionReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/support/BeanDefinitionReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/xml/BeanDefinitionDocumentReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/xml/BeanDefinitionDocumentReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/xml/DefaultBeanDefinitionDocumentReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/xml/DefaultBeanDefinitionDocumentReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/xml/DefaultDocumentLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/xml/DefaultDocumentLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/xml/DocumentLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/xml/DocumentLoader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/xml/XmlBeanDefinitionReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/xml/XmlBeanDefinitionReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-context/src/test/java/com/julu/java/MyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/src/test/java/com/julu/java/MyTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-context/target/classes/com/example/myspringbeans/context/support/AbstractXmlApplicationContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/target/classes/com/example/myspringbeans/context/support/AbstractXmlApplicationContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-context/target/classes/com/example/myspringbeans/context/support/ClassPathXmlApplicationContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/target/classes/com/example/myspringbeans/context/support/ClassPathXmlApplicationContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/env/AbstractEnvironment.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/env/AbstractEnvironment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/env/StandardEnvironment.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/env/StandardEnvironment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/io/support/PathMatchingResourcePatternResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/io/support/PathMatchingResourcePatternResolver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/io/support/ResourcePatternResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/io/support/ResourcePatternResolver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-core/target/classes/com/myspringcore/core/env/PropertyResolver.class" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/target/classes/com/myspringcore/core/env/PropertyResolver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-core/target/classes/com/myspringcore/core/env/StandardEnvironment.class" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/target/classes/com/myspringcore/core/env/StandardEnvironment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-core/target/classes/com/myspringcore/core/io/support/PathMatchingResourcePatternResolver.class" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/target/classes/com/myspringcore/core/io/support/PathMatchingResourcePatternResolver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySpring-core/target/classes/com/myspringcore/core/io/support/ResourcePatternResolver.class" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/target/classes/com/myspringcore/core/io/support/ResourcePatternResolver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/xml/XmlReaderContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-beans/src/main/java/com/example/myspringbeans/xml/XmlReaderContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-context/target/test-classes/com/julu/java/MyTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-context/target/test-classes/com/julu/java/MyTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/io/Resource.java" beforeDir="false" afterPath="$PROJECT_DIR$/MySpring-core/src/main/java/com/myspringcore/core/io/Resource.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,8 +32,8 @@
       <list>
         <option value="FxmlFile" />
         <option value="spring-beans.schema" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -335,7 +324,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669301627474</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="xml变成doc文件，下一步就是将doc文件解析成beanDefinition">
+      <created>1669536117038</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1669536117038</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -375,7 +371,8 @@
     <MESSAGE value="bean的创建过程" />
     <MESSAGE value="beanDefinition方法结束" />
     <MESSAGE value="写到xml文件的bean加载，具体加载方法还没写完" />
-    <option name="LAST_COMMIT_MESSAGE" value="写到xml文件的bean加载，具体加载方法还没写完" />
+    <MESSAGE value="xml变成doc文件，下一步就是将doc文件解析成beanDefinition" />
+    <option name="LAST_COMMIT_MESSAGE" value="xml变成doc文件，下一步就是将doc文件解析成beanDefinition" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -399,11 +396,6 @@
           <url>file://$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/support/AbstractXmlApplicationContext.java</url>
           <line>59</line>
           <option name="timeStamp" value="36" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/MySpring-context/src/main/java/com/example/myspringbeans/context/support/AbstractRefreshableConfigApplicationContext.java</url>
-          <line>49</line>
-          <option name="timeStamp" value="37" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

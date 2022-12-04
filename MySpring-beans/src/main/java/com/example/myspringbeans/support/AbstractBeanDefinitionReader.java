@@ -56,6 +56,11 @@ public abstract class AbstractBeanDefinitionReader implements BeanDefinitionRead
         }
     }
 
+    @Override
+    public BeanDefinitionRegistry getRegistry() {
+        return registry;
+    }
+
     /**
      * 设置读取bean定义时使用的环境
      */

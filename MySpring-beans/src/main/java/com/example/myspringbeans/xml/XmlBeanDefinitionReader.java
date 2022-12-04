@@ -10,12 +10,12 @@ import com.myspringcore.core.io.ResourceLoader;
 import com.myspringcore.core.io.support.EncodedResource;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.BeanDefinitionStoreException;
+import org.springframework.beans.factory.xml.XmlBeanDefinitionStoreException;
 import org.springframework.util.Assert;
-import org.xml.sax.EntityResolver;
-import org.xml.sax.ErrorHandler;
-import org.xml.sax.InputSource;
+import org.w3c.dom.Document;
+import org.xml.sax.*;
 
-import javax.swing.text.Document;
+import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashSet;
@@ -44,11 +44,6 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 
     public XmlBeanDefinitionReader(BeanDefinitionRegistry registry){
         super(registry);
-    }
-
-    @Override
-    public BeanDefinitionRegistry getRegistry() {
-        return null;
     }
 
     @Override
@@ -105,6 +100,12 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
             throw new BeanDefinitionStoreException(
                     "IOException parsing XML document from " + encodedResource.getResource(), e);
         }
+        finally {
+            currentResources.remove(encodedResource);
+            if (currentResources.isEmpty()){
+                this.resourceCurrentlyBeingLoaded.remove();
+            }
+        }
     }
 
     /**
@@ -122,11 +123,32 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
             // 从doc和资源中解析元素，注册到bean factory
             int count = registerBeanDefinitions(doc, resource);
             // TODO: 2022/11/27 日志
+
             return count;
-        } catch (Exception e) {
-            e.printStackTrace();
         }
-        return 0;
+        catch (BeanDefinitionStoreException ex){
+            throw ex;
+        }
+        catch (SAXParseException ex){
+            throw new XmlBeanDefinitionStoreException(resource.getDescription(),
+                    "Line " + ex.getLineNumber() + "in XML document from " + resource + "is invalid", ex);
+        }
+        catch (SAXException ex){
+            throw new XmlBeanDefinitionStoreException(resource.getDescription(),
+                    "XML document from " + resource + " is invalid", ex);
+        }
+        catch (ParserConfigurationException ex){
+            throw new BeanDefinitionStoreException(resource.getDescription(),
+                    "Parser configuration exception parsing XML from " + resource, ex);
+        }
+        catch (IOException ex){
+            throw new BeanDefinitionStoreException(resource.getDescription(),
+                    "IOException parsing XML document from " + resource, ex);
+        }
+        catch (Throwable ex) {
+            throw new BeanDefinitionStoreException(resource.getDescription(),
+                    "Unexpected exception parsing XML document from " + resource, ex);
+        }
     }
 
     /**
@@ -139,12 +161,17 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
         //1、使用DefaultBeanDefinitionDocumentReader 实例化 BeanDefinitionDocumentReader
         BeanDefinitionDocumentReader documentReader = createBeanDefinitionDocumentReader();
         //2、记录统计前beanDefinition的加载个数
-        
+        int countBefore = getRegistry().getBeanDefinitionCont();
         //3、加载及注册bean，这里使用注册工厂的是DefaultListableBeanFactory
-
+        documentReader.registerBeanDefinitions(doc, createReaderContext(resource));
         //4、记录本次加载的BeanDefinition个数（新值 - 旧值）
-        return 0;
+        return getRegistry().getBeanDefinitionCont() - countBefore;
     }
+
+    private XmlReaderContext createReaderContext(Resource resource) {
+        return new XmlReaderContext(resource, this);
+    }
+
 
     private Document doLoadDocument(InputSource inputSource, Resource resource) throws Exception {
         //这里对xml做了验证和转化

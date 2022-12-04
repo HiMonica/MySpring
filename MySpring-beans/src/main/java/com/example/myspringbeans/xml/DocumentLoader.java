@@ -1,10 +1,10 @@
 package com.example.myspringbeans.xml;
 
+import org.w3c.dom.Document;
 import org.xml.sax.EntityResolver;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.InputSource;
 
-import javax.swing.text.Document;
 
 /**
  * 用户加载XML的策略接口

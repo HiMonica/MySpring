@@ -1,8 +1,8 @@
 package com.example.myspringbeans.xml;
 
 import org.springframework.beans.factory.BeanDefinitionStoreException;
+import org.w3c.dom.Document;
 
-import javax.swing.text.Document;
 
 /**
  * 用于解析包含Spring bean定义的XML文档的SPI。
