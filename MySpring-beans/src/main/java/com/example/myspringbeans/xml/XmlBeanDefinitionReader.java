@@ -169,7 +169,7 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
     }
 
     private XmlReaderContext createReaderContext(Resource resource) {
-        return new XmlReaderContext(resource, this);
+        return new XmlReaderContext(resource, null, null, this, null);
     }
 
 

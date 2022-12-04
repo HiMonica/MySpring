@@ -1,5 +1,7 @@
 package com.example.myspringbeans.xml;
 
+import com.example.myspringbeans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Bean;
 import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
@@ -169,6 +171,28 @@ public class BeanDefinitionParserDelegate {
         populateDefaults(this.defaults, (parent != null ? parent.defaults : null), root);
         // 将准备好的defaults注册进context中
         this.readerContext.fireDefaultsRegistered(this.defaults);
+    }
+
+    @Nullable
+    public BeanDefinition parseCustomElement(Element ele) {
+        return parseCustomElement(ele, null);
+    }
+
+    @Nullable
+    public BeanDefinition parseCustomElement(Element ele, @Nullable BeanDefinition containingBd){
+        // 3.8 1、找到命名空间
+        String namespaceUri = getNamespaceURI(ele);
+        if (namespaceUri == null){
+            return null;
+        }
+        // 2、根据命名空间找到对应的 NamespaceHandler
+        NamespaceHandler handler = this.readerContext.getNamespaceHandlerResolver().resolve(namespaceUri);
+        if (handler == null){
+            // TODO: 2022/12/4 日志
+            return null;
+        }
+        // 3、调用自定义的 NamespaceHandler 进行解析
+        return handler.parse(ele, new ParserContext(this.readerContext, this, containingBd));
     }
 
     /**

@@ -17,7 +17,7 @@ public class ReaderContext {
 
     private final Resource resource;
 
-    ReaderContext(Resource resource, ReaderEventListener eventListener, SourceExtractor sourceExtractor){
+    public ReaderContext(Resource resource, ReaderEventListener eventListener, SourceExtractor sourceExtractor){
         this.sourceExtractor = sourceExtractor;
         this.resource = resource;
         this.eventListener = eventListener;
