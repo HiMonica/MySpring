@@ -1,6 +1,9 @@
 package com.example.myspringbeans.xml;
 
+import com.apache.commons.logging.Log;
+import com.apache.commons.logging.LogFactory;
 import com.example.myspringbeans.factory.config.BeanDefinition;
+import com.example.myspringbeans.factory.parsing.ParseState;
 import org.springframework.context.annotation.Bean;
 import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
@@ -157,13 +160,21 @@ public class BeanDefinitionParserDelegate {
 
     public static final String DEFAULT_DESTROY_METHOD_ATTRIBUTE = "default-destroy-method";
 
+    protected final Log logger = LogFactory.getLog(getClass());
+
     private final XmlReaderContext readerContext;
 
     private final DocumentDefaultsDefinition defaults = new DocumentDefaultsDefinition();
 
+    private final ParseState parseState = new ParseState();
+
     public BeanDefinitionParserDelegate(XmlReaderContext readerContext){
         Assert.notNull(readerContext, "XmlReaderContext must not be null");
         this.readerContext = readerContext;
+    }
+
+    protected void error(String message, Node source){
+        this.readerContext.error(message, source, this.parseState.snapshot());
     }
 
     public void initDefaults(Element root, BeanDefinitionParserDelegate parent) {
@@ -189,6 +200,7 @@ public class BeanDefinitionParserDelegate {
         NamespaceHandler handler = this.readerContext.getNamespaceHandlerResolver().resolve(namespaceUri);
         if (handler == null){
             // TODO: 2022/12/4 日志
+
             return null;
         }
         // 3、调用自定义的 NamespaceHandler 进行解析
@@ -249,6 +261,18 @@ public class BeanDefinitionParserDelegate {
     }
 
     /**
+     * 获取所提供的{@link Node}的本地名称。
+     * 默认实现调用{@link Node#getLocalName}。
+     * 子类可以覆盖默认实现来提供一个
+     *
+     * @param node
+     * @return
+     */
+    public String getLocalName(Node node){
+        return node.getLocalName();
+    }
+
+    /**
      * 获取所提供节点的名称空间URI
      * @param node
      * @return
@@ -256,6 +280,10 @@ public class BeanDefinitionParserDelegate {
     @Nullable
     public String getNamespaceURI(Node node){
         return node.getNamespaceURI();
+    }
+
+    public boolean nodeNameEquals(Node node, String desiredName){
+        return desiredName.equals(node.getNodeName()) || desiredName.equals(getLocalName(node));
     }
 
     private boolean isDefaultValue(String value){

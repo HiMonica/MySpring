@@ -18,6 +18,8 @@ import org.w3c.dom.NodeList;
  */
 public class DefaultBeanDefinitionDocumentReader implements BeanDefinitionDocumentReader{
 
+    public static final String BEAN_ELEMENT = BeanDefinitionParserDelegate.BEAN_ELEMENT;
+
     public static final String NESTED_BEANS_ELEMENT = "beans";
 
     public static final String ALIAS_ELEMENT = "alias";
@@ -101,7 +103,20 @@ public class DefaultBeanDefinitionDocumentReader implements BeanDefinitionDocume
 
     protected void parseDefaultElement(Element ele, BeanDefinitionParserDelegate delegate) {
         // 2.1 默认标签解析
+        if (delegate.nodeNameEquals(ele, IMPORT_ELEMENT)){
+            // 解析 import 标签
 
+        }
+        else if (delegate.nodeNameEquals(ele, ALIAS_ATTRIBUTE)){
+            // 解析 alias 标签
+        }
+        else if (delegate.nodeNameEquals(ele, BEAN_ELEMENT)){
+            // 解析 bean 标签
+        }
+        else if (delegate.nodeNameEquals(ele, NESTED_BEANS_ELEMENT)){
+            // 解析 beans 标签，其实就是递归，重新对这个element下的标签进行注册解析
+            doRegisterBeanDefinitions(ele);
+        }
     }
 
     /**

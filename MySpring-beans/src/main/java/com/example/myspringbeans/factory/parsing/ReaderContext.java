@@ -4,6 +4,7 @@ import com.example.myspringbeans.xml.DocumentDefaultsDefinition;
 import com.myspringcore.core.io.Resource;
 import org.springframework.lang.Nullable;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 
 /**
  * @author julu
@@ -35,5 +36,13 @@ public class ReaderContext {
      */
     public void fireDefaultsRegistered(DocumentDefaultsDefinition defaultsDefinition) {
         this.eventListener.defaultRegistered(defaultsDefinition);
+    }
+
+    public void error(String message, Node source, ParseState parseState) {
+        error(message, source, parseState, null);
+    }
+
+    public void error(String message, Node source, ParseState parseState, Throwable cause) {
+
     }
 }

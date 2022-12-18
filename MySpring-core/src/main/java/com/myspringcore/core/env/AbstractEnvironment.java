@@ -99,4 +99,9 @@ public abstract class AbstractEnvironment implements ConfigurableEnvironment{
     public String resolveRequirePlaceholders(String text) throws IllegalArgumentException {
         return this.propertyResolver.resolveRequirePlaceholders(text);
     }
+
+    @Override
+    public boolean acceptsProfiles(String... specifiedProfiles) {
+        return false;
+    }
 }

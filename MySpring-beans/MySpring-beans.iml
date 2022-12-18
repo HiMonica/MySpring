@@ -64,5 +64,6 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework:spring-test:5.3.19" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.xmlunit:xmlunit-core:2.8.4" level="project" />
     <orderEntry type="module" module-name="MySpring-core" />
+    <orderEntry type="module" module-name="MySpring-jcl" />
   </component>
 </module>

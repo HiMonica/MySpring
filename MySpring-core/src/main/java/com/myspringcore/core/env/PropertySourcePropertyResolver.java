@@ -1,6 +1,7 @@
 package com.myspringcore.core.env;
 
 import org.springframework.core.env.MissingRequiredPropertiesException;
+import org.springframework.lang.Nullable;
 
 /**
  * @author julu
@@ -8,7 +9,8 @@ import org.springframework.core.env.MissingRequiredPropertiesException;
  */
 public class PropertySourcePropertyResolver extends AbstractPropertyResolver{
 
-    private PropertySources propertySources;
+    @Nullable
+    private final PropertySources propertySources;
 
     public PropertySourcePropertyResolver(PropertySources propertySources){
         this.propertySources = propertySources;
@@ -25,7 +27,15 @@ public class PropertySourcePropertyResolver extends AbstractPropertyResolver{
     }
 
     @Override
-    public String resolveRequirePlaceholders(String text) throws IllegalArgumentException {
+    protected String getPropertyAsRawString(String key) {
+        return getProperty(key, String.class, false);
+    }
+
+    @Nullable
+    protected <T> T getProperty(String key, Class<T> targetValueType, boolean resolveNestedPlaceholders) {
+        if (this.propertySources != null){
+
+        }
         return null;
     }
 }

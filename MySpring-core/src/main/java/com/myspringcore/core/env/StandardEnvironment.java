@@ -10,8 +10,4 @@ import java.util.Map;
  */
 public class StandardEnvironment extends AbstractEnvironment{
 
-    @Override
-    public String resolveRequirePlaceholders(String text) throws IllegalArgumentException {
-        return null;
-    }
 }
